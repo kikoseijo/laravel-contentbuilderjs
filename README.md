@@ -7,25 +7,21 @@ This package is not with ContentBuilder.js source files. You have to purchase it
 
 USAGE
 
-For Laravel 5.2 & 5.3
+For Laravel 5.2+
 
-composer require ksoft/content-builder-js
+composer require ksoft/laravel-contentbuilderjs
 
 add the following line in config/app.php
+```
 Ksoft\ContentBuilderJs\ContentBuilderJsServiceProvider::class,
+```
 
-Publishing config tag vendor
-php artisan vendor:publish --provider="Ksoft\ContentBuilderJs\ContentBuilderJsServiceProvider" --tag=config --force
+Publish config and vendors
 
-It will publishh all config file to laravel config folder
+```
+php artisan vendor:publish --provider="Ksoft\ContentBuilderJs\ContentBuilderJsServiceProvider" --tag=config --force && php artisan vendor:publish --provider="Ksoft\ContentBuilderJs\ContentBuilderJsServiceProvider" --tag=public --force
+```
 
-
-Publishing public tag vendor
-php artisan vendor:publish --provider="Ksoft\ContentBuilderJs\ContentBuilderJsServiceProvider" --tag=public --force
-
-It will publish all public content to laravel public folder
-
-Add this line in any of your view file and see the magic
 @include('content-builder-js::tpl')
 
-For more help visit http://innovastudio.com/content-builder.aspx
+You are done!
