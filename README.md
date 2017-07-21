@@ -19,7 +19,7 @@ Ksoft\ContentBuilderJs\ContentBuilderJsServiceProvider::class,
 Publish config and vendors
 
 ```
-php artisan vendor:publish --provider="Ksoft\ContentBuilderJs\ContentBuilderJsServiceProvider" --tag=config --force && php artisan vendor:publish --provider="Ksoft\ContentBuilderJs\ContentBuilderJsServiceProvider" --tag=public --force
+php artisan vendor:publish --provider="Ksoft\ContentBuilderJs\BuilderServiceProvider" --tag=config --force && php artisan vendor:publish --provider="Ksoft\ContentBuilderJs\BuilderServiceProvider" --tag=public --force
 ```
 
 @include('content-builder-js::tpl')
