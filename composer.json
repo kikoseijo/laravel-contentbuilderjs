@@ -11,7 +11,7 @@
     ],
    "autoload": {
         "psr-4": {
-            "ksoft\\laravel-contentbuilderjs\\": "src/"
+            "Ksoft\\LaravelContentbuilderjs\\": "src/"
         }
     },
     "minimum-stability" : "stable"
