@@ -1,0 +1,18 @@
+{
+    "name": "kikoseijo/laravel-contentbuilderjs",
+    "description": "Content builder package for laravel",
+    "keywords": ["laravel", "ContentBuilderJS"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Kiko Seijo",
+            "email": "kiko@sunnyface.com"
+        }
+    ],
+   "autoload": {
+        "psr-4": {
+            "kikoseijo\\laravel-contentbuilderjs\\": "src/"
+        }
+    },
+    "minimum-stability" : "stable"
+}
