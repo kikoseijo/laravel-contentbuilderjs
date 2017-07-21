@@ -3,7 +3,7 @@
 namespace Ksoft\ContentBuilderJs;
 use Illuminate\Support\ServiceProvider;
 
-class ContentBuilderJsServiceProvider extends ServiceProvider {
+class BuilderServiceProvider extends ServiceProvider {
 
     /**
      * Bootstrap the application services.
