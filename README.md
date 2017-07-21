@@ -13,7 +13,7 @@ composer require ksoft/laravel-contentbuilderjs
 
 add the following line in config/app.php
 ```
-Ksoft\ContentBuilderJs\ContentBuilderJsServiceProvider::class,
+Ksoft\ContentBuilderJs\BuilderServiceProvider::class,
 ```
 
 Publish config and vendors
