@@ -12,14 +12,21 @@ class BuilderServiceProvider extends ServiceProvider {
      */
     public function boot() {
         $this->publishes([
-            __DIR__ . '/config/content-builder-js.php' => base_path('config/content-builder-js.php')
-                ], 'config');
+            __DIR__ . '/config/content-builder-js.php' => config_path('content-builder-js.php')
+        ], 'config');
 
         $this->publishes([
             __DIR__ . '/assets/' => base_path('public/vendor/content-builder-js')
-                ], 'public');
+        ], 'public');
 
         $this->loadViewsFrom(__DIR__ . '/resources/view', 'content-builder-js');
+        $this->publishes([
+               __DIR__.'/resources/view' => resource_path('views/vendor/content-builder-js'),
+        ], 'views');
+        $this->loadRoutesFrom(__DIR__.'/routes.php');
+
+        $this->loadMigrationsFrom(__DIR__.'/migrations');
+
     }
 
     /**
