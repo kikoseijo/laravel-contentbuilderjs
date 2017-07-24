@@ -4,6 +4,7 @@ return [
     'content_css' => '/vendor/content-builder-js/assets/minimalist-basic/content.css',
     'contentbuilder_css' => '/vendor/content-builder-js/contentbuilder/contentbuilder.css',
     'default_layout' => 'layouts.default',
+    'route_prefix' => 'content-builder-js',
     'middlewares' => 'web,auth',
     'load_jquery' => false,
     'load_jquery_ui' => true,

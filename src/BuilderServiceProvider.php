@@ -53,7 +53,7 @@ class BuilderServiceProvider extends ServiceProvider {
         };
 
         $defaultOptions = [
-            'prefix' => 'cbld',
+            'prefix' => config('content-builder-js.route_prefix'),
             'namespace' => '\Ksoft\ContentBuilderJs\Controllers',
         ];
 
