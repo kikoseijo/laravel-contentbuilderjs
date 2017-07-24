@@ -7,7 +7,7 @@ This package is not with ContentBuilder.js source files. You have to purchase it
 
 USAGE
 
-For Laravel 5.2+
+For Laravel 5.4
 
 composer require ksoft/laravel-contentbuilderjs
 
@@ -21,6 +21,8 @@ Publish config and vendors
 ```
 php artisan vendor:publish --provider="Ksoft\ContentBuilderJs\BuilderServiceProvider" --tag=config --force && php artisan vendor:publish --provider="Ksoft\ContentBuilderJs\BuilderServiceProvider" --tag=public --force
 ```
+
+make sure you have in layout header ```@stack('stylesheets')``` also in footer ```@stack('scripts')```
 
 @include('content-builder-js::tpl')
 

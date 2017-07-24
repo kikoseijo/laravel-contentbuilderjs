@@ -39,20 +39,20 @@
 <script type="text/javascript">
 @if (isset($els))
     @foreach($els as $el)
-        jQuery(document).ready(function ($) {
+        //jQuery(document).ready(function ($) {
             $("#contentarea").contentbuilder({
                 {!! json_encode(config('content-builder-js.'.$el)) !!}
             });
-        });
+        //});
     @endforeach
 @else
-    jQuery(document).ready(function ($) {
-        $("#contentarea").contentbuilder({
-            @foreach(config('content-builder-js.default') as $key=>$val)
-                {!! $key !!}: '{!! $val !!}',
-            @endforeach
-        });
+    //jQuery(document).ready(function ($) {
+    $("#contentarea").contentbuilder({
+        @foreach(config('content-builder-js.default') as $key=>$val)
+            {!! $key !!}: '{!! $val !!}',
+        @endforeach
     });
+    //});
 @endif
     function save() {
         //Save all images first
