@@ -1,0 +1,68 @@
+<?php
+
+namespace Laravel\Passport;
+
+use Illuminate\Contracts\Routing\Registrar as Router;
+
+class RouteRegistrar
+{
+    /**
+     * The router implementation.
+     *
+     * @var \Illuminate\Contracts\Routing\Registrar
+     */
+    protected $router;
+
+    /**
+     * Create a new route registrar instance.
+     *
+     * @param  \Illuminate\Contracts\Routing\Registrar  $router
+     * @return void
+     */
+    public function __construct(Router $router)
+    {
+        $this->router = $router;
+    }
+
+    /**
+     * Register routes for transient tokens, clients, and personal access tokens.
+     *
+     * @return void
+     */
+    public function all()
+    {
+        $this->forTemplates();
+        $this->forBlockBuilder();
+    }
+
+    /**
+     * Register the routes needed for authorization.
+     *
+     * @return void
+     */
+    public function forTemplates()
+    {
+        $this->router->group(['middleware' => ['web', 'auth']], function ($router) {
+
+            $router->post('/save-content-builder-page',[
+                'as'=>'template.save',
+                'uses' => 'Ksoft\ContentBuilderJs\Controllers\TemplateController@saveTemplatePage'
+            ]);	// Saves pages templates.
+            $router->get('/content-builder/edit/{page_id?}',[
+                'as'=>'template.edit',
+                'uses' => 'Ksoft\ContentBuilderJs\Controllers\TemplateController@editTemplatePage'
+            ]);	// Saves pages templates.
+
+        });
+    }
+
+    /**
+     * Register the routes for retrieving and issuing access tokens.
+     *
+     * @return void
+     */
+    public function forBlockBuilder()
+    {
+
+    }
+}
