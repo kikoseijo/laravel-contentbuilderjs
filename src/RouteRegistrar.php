@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Passport;
+namespace Ksoft\ContentBuilderJs;
 
 use Illuminate\Contracts\Routing\Registrar as Router;
 
