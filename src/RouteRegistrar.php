@@ -52,6 +52,10 @@ class RouteRegistrar
                 'as'=>'template.edit',
                 'uses' => '\Ksoft\ContentBuilderJs\Controllers\TemplateController@editTemplatePage'
             ]);	// Saves pages templates.
+            $router->get('/templates',[
+                'as'=>'template.list',
+                'uses' => '\Ksoft\ContentBuilderJs\Controllers\TemplateController@listTemplates'
+            ]);	// Saves pages templates.
 
         });
     }
