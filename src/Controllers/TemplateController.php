@@ -22,12 +22,13 @@ class TemplateController extends BaseController
 
     public function saveTemplatePage(Request $request, $page_id = '')
     {
+        $inputs = $request->all();
         if ($page_id>0) {
             $template = ContentTemplate::find($page_id);
+            $template->fill($inputs);
         } else {
-            $template = new ContentTemplate;
+            $template = ContentTemplate::create($inputs);
         }
-        $template->fill($request->all());
         $template->save();
 
         return redirect(route('template.list'))->withSuccess('Template saved succesfully');

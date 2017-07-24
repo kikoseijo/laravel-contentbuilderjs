@@ -12,6 +12,10 @@ class ContentTemplate extends Model
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
+    protected fillable = [
+        'name', 'title', 'url', 'body', 'lang', 'short_text'
+    ];
+
     /**
      * Validation rules
      *
