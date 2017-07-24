@@ -44,7 +44,7 @@ class RouteRegistrar
     {
         $this->router->group(['middleware' => explode(',', config('content-builder-js.middlewares'))], function ($router) {
 
-            $router->post('/save',[
+            $router->post('/save/{page_id?}',[
                 'as'=>'template.save',
                 'uses' => '\Ksoft\ContentBuilderJs\Controllers\TemplateController@saveTemplatePage'
             ]);	// Saves pages templates.
