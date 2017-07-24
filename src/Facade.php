@@ -22,6 +22,6 @@ class Facade extends IlluminateFacade
      */
     public static function routes()
     {
-        static::$app->make('router')->cbldjs();
+        static::$app->make('router');
     }
 }
