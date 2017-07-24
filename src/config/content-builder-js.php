@@ -16,7 +16,7 @@ return [
 	'default' => [
 		"snippetFile" => "/vendor/content-builder-js/assets/minimalist-basic/snippets.html",
 		"snippetOpen" => true,
-		"toolbar" => "right",
+		"toolbar" => "left",
 		"iconselect" => "/vendor/content-builder-js/assets/ionicons/selecticon.html",
 	],
 

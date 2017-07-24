@@ -44,11 +44,12 @@
 	</div>
 </div>
 
-<form id="saveTemplate" target="{{ route('template.save') }}" method="post" style="display:none">
+<form id="form1" action="{{ route('template.save') }}" method="POST" style="display:none">
 	<input type="hidden" id="hidName" name="hidName" />
 	<input type="hidden" id="hidTitle" name="hidTitle" />
 	<input type="hidden" id="hidUrl" name="hidUrl" />
 	<input type="hidden" id="hidContent" name="hidContent" />
+	<input type="submit" id="btnPost" value="submit" />
 </form>
 
 <div id="panelCms">
@@ -113,7 +114,7 @@
 	                $('#hidTitle').val(sTitle);
 	                $('#hidUrl').val(sUrl);
 	                $('#hidContent').val(sContent);
-	                $('#saveTemplate').submit();
+	                $('#btnPost').click();
 	            }
 	        });
 	        $("body").data('saveimages').save();
