@@ -1,15 +1,3 @@
-<!-- Hidden Form Fields to post content -->
-<form id="form1" target="{{ route('template.save') }}" method="post" style="display:none">
-	<input type="hidden" id="hidHeader" name="hidHeader" />
-	<input type="hidden" id="hidContent" name="hidContent" />
-	<input type="submit" id="btnPost" value="submit" />
-</form>
-
-<!-- CUSTOM PANEL (can be used for "save" button or your own custom buttons) -->
-<div id="panelCms">
-    <button onclick="save()" class="btn btn-primary"> Save </button>
-</div>
-
 @push('stylesheets')
   <link href="{{ config('content-builder-js.content_css') }}" rel="stylesheet" type="text/css" />
   <link href="{{ config('content-builder-js.contentbuilder_css') }}" rel="stylesheet" type="text/css" />
@@ -23,51 +11,61 @@
       #panelCms button {border-radius:4px;padding: 10px 15px;text-transform:uppercase;font-size: 11px;letter-spacing: 1px;line-height: 1;}
   </style>
 @endpush
-@push('scripts')
-  @if (config('content-builder-js.load_jquery'))
-    <script type="text/javascript" src="{{ config('content-builder-js.jquery') }}"></script>
-  @endif
-  @if (config('content-builder-js.load_jquery_ui'))
-    <script type="text/javascript" src="{{ config('content-builder-js.jquery-ui') }}"></script>
-  @endif
-  <script type="text/javascript" src="{{ config('content-builder-js.contentbuilderjs-src') }}"></script>
-  <script type="text/javascript" src="{{ config('content-builder-js.saveimages') }}"></script>
 
+@push('scripts')
+	@if (config('content-builder-js.load_jquery'))
+		<script type="text/javascript" src="{{ config('content-builder-js.jquery') }}"></script>
+	@endif
+	@if (config('content-builder-js.load_jquery_ui'))
+		<script type="text/javascript" src="{{ config('content-builder-js.jquery-ui') }}"></script>
+	@endif
+	<script type="text/javascript" src="{{ config('content-builder-js.contentbuilderjs-src') }}"></script>
+	<script type="text/javascript" src="{{ config('content-builder-js.saveimages') }}"></script>
+	<script type="text/javascript">
+	@if (isset($els))
+	    @foreach($els as $el)
+	        jQuery(document).ready(function ($) {
+	            $("#contentarea").contentbuilder({
+	                {!! json_encode(config('content-builder-js.'.$el)) !!}
+	            });
+	        });
+	    @endforeach
+	@else
+	    jQuery(document).ready(function ($) {
+	        $("#contentarea").contentbuilder({
+	            @foreach(config('content-builder-js.default') as $key=>$val)
+	                {!! $key !!}: '{!! $val !!}',
+	            @endforeach
+	        });
+	    });
+	@endif
+	    function save() {
+	        //Save all images first
+	        $("body").saveimages({
+	            handler: '/vendor/content-builder-js/saveimage.php',
+	            onComplete: function () {
+	                //Then save the content
+					var sHeader = $('#headerarea').data('contentbuilder').html(); //Get header
+	                var sContent = $('#contentarea').data('contentbuilder').html(); //Get content
+					$('#hidHeader').val(sHeader);
+	                $('#hidContent').val(sContent);
+	                $('#btnPost').click();
+	            }
+	        });
+	        $("body").data('saveimages').save();
+	        $("html").fadeOut(1000);
+	    }
+	</script>
 @endpush
 
+<!-- Hidden Form Fields to post content -->
+<form id="form1" target="{{ route('template.save') }}" method="post" style="display:none">
+	<input type="hidden" id="hidHeader" name="hidHeader" />
+	<input type="hidden" id="hidContent" name="hidContent" />
+	<input type="submit" id="btnPost" value="submit" />
+</form>
 
-<script type="text/javascript">
-@if (isset($els))
-    @foreach($els as $el)
-        //jQuery(document).ready(function ($) {
-            $("#contentarea").contentbuilder({
-                {!! json_encode(config('content-builder-js.'.$el)) !!}
-            });
-        //});
-    @endforeach
-@else
-    //jQuery(document).ready(function ($) {
-    $("#contentarea").contentbuilder({
-        @foreach(config('content-builder-js.default') as $key=>$val)
-            {!! $key !!}: '{!! $val !!}',
-        @endforeach
-    });
-    //});
-@endif
-    function save() {
-        //Save all images first
-        $("body").saveimages({
-            handler: '/vendor/content-builder-js/saveimage.php',
-            onComplete: function () {
-                //Then save the content
-				var sHeader = $('#headerarea').data('contentbuilder').html(); //Get header
-                var sContent = $('#contentarea').data('contentbuilder').html(); //Get content
-				$('#hidHeader').val(sHeader);
-                $('#hidContent').val(sContent);
-                $('#btnPost').click();
-            }
-        });
-        $("body").data('saveimages').save();
-        $("html").fadeOut(1000);
-    }
-</script>
+<!-- CUSTOM PANEL (can be used for "save" button or your own custom buttons) -->
+<div id="panelCms">
+    <button onclick="save()" class="btn btn-primary"> Save </button>
+</div>
