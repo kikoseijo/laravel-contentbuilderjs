@@ -1,3 +1,35 @@
+<div style="background:#eaeaea;float:left;width:100%">
+    <div id="headerarea" class="is-container container">
+		@if(Session::has('myHeader'))
+			{!! Session::get('myHeader') !!}
+		@else
+			<div class="row clearfix">
+		  		<div class="column full">
+		  			<div class="display">
+						<h1>Lorem Ipsum is simply dummy text of the printing and typesetting industry</h1>
+					</div>
+		  		</div>
+	  		</div>
+		@endif
+    </div>
+</div>
+
+<!-- CONTENT -->
+<div style="background:#f7f7f7;float:left;width:100%">
+	<div id="contentarea" class="is-container container">
+		@if(Session::has('myContent'))
+			{!! Session::get('myContent') !!}
+		@else
+			<div class="row clearfix">
+			    <div class="column full">
+			        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+			            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus leo ante, consectetur sit amet vulputate vel, dapibus sit amet lectus.</p>
+			    </div>
+			</div>
+		@endif
+	</div>
+</div>
+
 @push('stylesheets')
   <link href="{{ config('content-builder-js.content_css') }}" rel="stylesheet" type="text/css" />
   <link href="{{ config('content-builder-js.contentbuilder_css') }}" rel="stylesheet" type="text/css" />
