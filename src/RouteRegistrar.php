@@ -44,11 +44,11 @@ class RouteRegistrar
     {
         $this->router->group(['middleware' => explode(',', config('content-builder-js.middlewares'))], function ($router) {
 
-            $router->post('/save-content-builder-page',[
+            $router->post('/save',[
                 'as'=>'template.save',
                 'uses' => 'TemplateController@saveTemplatePage'
             ]);	// Saves pages templates.
-            $router->get('/content-builder/edit/{page_id?}',[
+            $router->get('/edit/{page_id?}',[
                 'as'=>'template.edit',
                 'uses' => 'TemplateController@editTemplatePage'
             ]);	// Saves pages templates.
