@@ -3,18 +3,28 @@
 @section('content')
 
 <div style="background:#eaeaea;float:left;width:100%">
-    <div id="headerarea" class="is-container container">
-		@if(Session::has('myHeader'))
-			{!! Session::get('myHeader') !!}
-		@else
-			<div class="row clearfix">
-		  		<div class="column full">
-		  			<div class="display">
-						<h1>Lorem Ipsum is simply dummy text of the printing and typesetting industry</h1>
-					</div>
-		  		</div>
-	  		</div>
-		@endif
+    <div class="container">
+		<div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+		    {!! Form::label('name', 'Input', ['class' => 'col-sm-3 control-label']) !!}
+		    <div class="col-sm-9">
+		        {!! Form::text('name', null, ['class' => 'form-control', 'required' => 'required']) !!}
+		        <small class="text-danger">{{ $errors->first('name') }}</small>
+		    </div>
+		</div>
+		<div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
+		    {!! Form::label('title', 'Input', ['class' => 'col-sm-3 control-label']) !!}
+		    <div class="col-sm-9">
+		        {!! Form::text('title', null, ['class' => 'form-control', 'required' => 'required']) !!}
+		        <small class="text-danger">{{ $errors->first('title') }}</small>
+		    </div>
+		</div>
+		<div class="form-group{{ $errors->has('url') ? ' has-error' : '' }}">
+		    {!! Form::label('url', 'Input', ['class' => 'col-sm-3 control-label']) !!}
+		    <div class="col-sm-9">
+		        {!! Form::text('url', null, ['class' => 'form-control', 'required' => 'required']) !!}
+		        <small class="text-danger">{{ $errors->first('url') }}</small>
+		    </div>
+		</div>
     </div>
 </div>
 
@@ -35,7 +45,9 @@
 </div>
 
 <form id="form1" target="{{ route('template.save') }}" method="post" style="display:none">
-	<input type="hidden" id="hidHeader" name="hidHeader" />
+	<input type="hidden" id="hidName" name="hidName" />
+	<input type="hidden" id="hidTitle" name="hidTitle" />
+	<input type="hidden" id="hidUrl" name="hidUrl" />
 	<input type="hidden" id="hidContent" name="hidContent" />
 	<input type="submit" id="btnPost" value="submit" />
 </form>
@@ -93,9 +105,14 @@
 	            handler: '/vendor/content-builder-js/saveimage.php',
 	            onComplete: function () {
 	                //Then save the content
-					var sHeader = $('#headerarea').data('contentbuilder').html(); //Get header
+					var sName = $('#name').val(); //Get header
+					var sTitle = $('#title').val(); //Get header
+					var sUrl = $('#url').val(); //Get header
 	                var sContent = $('#contentarea').data('contentbuilder').html(); //Get content
-					$('#hidHeader').val(sHeader);
+					//$('#hidHeader').val(sHeader);
+	                $('#hidName').val(sName);
+	                $('#hidTitle').val(sTitle);
+	                $('#hidUrl').val(sUrl);
 	                $('#hidContent').val(sContent);
 	                $('#btnPost').click();
 	            }
