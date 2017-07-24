@@ -3,6 +3,7 @@
 return [
     'content_css' => '/vendor/content-builder-js/assets/minimalist-basic/content.css',
     'contentbuilder_css' => '/vendor/content-builder-js/contentbuilder/contentbuilder.css',
+    'default_layout' => 'layouts.default',
     'load_jquery' => false,
     'load_jquery_ui' => true,
     'jquery' => '/vendor/content-builder-js/contentbuilder/jquery.min.js',

@@ -1,3 +1,7 @@
+@extends(config('content-builder-js.default_layout'))
+
+@section('content')
+
 <div style="background:#eaeaea;float:left;width:100%">
     <div id="headerarea" class="is-container container">
 		@if(Session::has('myHeader'))
@@ -29,6 +33,18 @@
 		@endif
 	</div>
 </div>
+
+<form id="form1" target="{{ route('template.save') }}" method="post" style="display:none">
+	<input type="hidden" id="hidHeader" name="hidHeader" />
+	<input type="hidden" id="hidContent" name="hidContent" />
+	<input type="submit" id="btnPost" value="submit" />
+</form>
+
+<div id="panelCms">
+    <button onclick="save()" class="btn btn-primary"> Save </button>
+</div>
+
+@stop
 
 @push('stylesheets')
   <link href="{{ config('content-builder-js.content_css') }}" rel="stylesheet" type="text/css" />
@@ -89,15 +105,3 @@
 	    }
 	</script>
 @endpush
-
-<!-- Hidden Form Fields to post content -->
-<form id="form1" target="{{ route('template.save') }}" method="post" style="display:none">
-	<input type="hidden" id="hidHeader" name="hidHeader" />
-	<input type="hidden" id="hidContent" name="hidContent" />
-	<input type="submit" id="btnPost" value="submit" />
-</form>
-
-<!-- CUSTOM PANEL (can be used for "save" button or your own custom buttons) -->
-<div id="panelCms">
-    <button onclick="save()" class="btn btn-primary"> Save </button>
-</div>
