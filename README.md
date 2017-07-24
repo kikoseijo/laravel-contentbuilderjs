@@ -1,6 +1,10 @@
 # laravel-contentbuilderjs
+
+## This package its under development
+
 Laravel package for ContentBuilderjs
 Based on an outdated plugin https://github.com/sahbaj/laravel-content-builder-js
+
 
 
 This package is not with ContentBuilder.js source files. You have to purchase it and put all the files in assests folder.
