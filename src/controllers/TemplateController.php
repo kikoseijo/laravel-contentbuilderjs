@@ -15,4 +15,8 @@ class TemplateController extends BaseController
     {
         return $request::all();
     }
+    public function editTemplatePage(Request $request, $page_id)
+    {
+         return view('content-builder-js::page_builder');
+    }
 }
