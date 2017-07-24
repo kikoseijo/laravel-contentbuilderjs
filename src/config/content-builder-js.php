@@ -6,7 +6,7 @@ return [
     'default_layout' => 'content-builder-js::layout',
     'route_prefix' => 'content-builder-js',
     'middlewares' => 'web,auth',
-    'load_jquery' => false,
+    'load_jquery' => true,
     'load_jquery_ui' => true,
     'jquery' => '/vendor/content-builder-js/contentbuilder/jquery.min.js',
     'jquery-ui' => '/vendor/content-builder-js/contentbuilder/jquery-ui.min.js',
