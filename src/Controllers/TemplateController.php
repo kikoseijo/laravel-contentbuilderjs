@@ -34,7 +34,7 @@ class TemplateController extends BaseController
         $template->name = $request->get('hidName');
         $template->title = $request->get('hidTitle');
         $template->url = $request->get('hidUrl');
-        $template->body = Purifier::clean(Input::get('hidContent'));
+        $template->body = Purifier::clean($request->get('hidContent'));
 
         $template->save();
 
