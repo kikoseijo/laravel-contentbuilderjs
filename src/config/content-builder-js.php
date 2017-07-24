@@ -1,13 +1,14 @@
 <?php
 
 return [
-    'content_css' => Config('app.url').('/vendor/content-builder-js/assets/minimalist-basic/content.css'),
-    'contentbuilder_css' => Config('app.url').('/vendor/content-builder-js/contentbuilder/contentbuilder.css'),
-
-	'jquery' => Config('app.url').('/vendor/content-builder-js/contentbuilder/jquery.min.js'),
-	'jquery-ui' => Config('app.url').('/vendor/content-builder-js/contentbuilder/jquery-ui.min.js'),
-	'contentbuilderjs-src' => Config('app.url').('/vendor/content-builder-js/contentbuilder/contentbuilder.js'),
-	'saveimages' => Config('app.url').('/vendor/content-builder-js/contentbuilder/saveimages.js'),
+    'content_css' => '/vendor/content-builder-js/assets/minimalist-basic/content.css',
+    'contentbuilder_css' => '/vendor/content-builder-js/contentbuilder/contentbuilder.css',
+    'load_jquery' => false,
+    'load_jquery_ui' => true,
+    'jquery' => '/vendor/content-builder-js/contentbuilder/jquery.min.js',
+    'jquery-ui' => '/vendor/content-builder-js/contentbuilder/jquery-ui.min.js',
+    'contentbuilderjs-src' => '/vendor/content-builder-js/contentbuilder/contentbuilder.js',
+    'saveimages' => '/vendor/content-builder-js/contentbuilder/saveimages.js',
 
 	'default' => [
 		"snippetFile" => "/vendor/content-builder-js/assets/minimalist-basic/snippets.html",
