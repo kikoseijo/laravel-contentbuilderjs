@@ -17,5 +17,8 @@
             "Ksoft\\ContentBuilderJs\\": "src/"
         }
     },
-    "minimum-stability" : "stable"
+    "minimum-stability" : "stable",
+    "require": {
+        "mews/purifier": "^2.0"
+    }
 }

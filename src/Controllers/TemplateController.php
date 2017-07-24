@@ -8,6 +8,7 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 use Ksoft\ContentBuilderJs\Models\ContentTemplate;
+use Mews\Purifier\Facades\Purifier;
 
 class TemplateController extends BaseController
 {
@@ -33,7 +34,7 @@ class TemplateController extends BaseController
         $template->name = $request->get('hidName');
         $template->title = $request->get('hidTitle');
         $template->url = $request->get('hidUrl');
-        $template->body = $request->get('hidContent');
+        $template->body = Purifier::clean(Input::get('hidContent'));
 
         $template->save();
 
