@@ -23,7 +23,6 @@ class BuilderServiceProvider extends ServiceProvider {
         $this->publishes([
                __DIR__.'/resources/view' => resource_path('views/vendor/content-builder-js'),
         ], 'views');
-        $this->loadRoutesFrom(__DIR__.'/routes.php');
 
         $this->loadMigrationsFrom(__DIR__.'/migrations');
 
@@ -35,7 +34,7 @@ class BuilderServiceProvider extends ServiceProvider {
      * @return void
      */
     public function register() {
-//
+        $this->loadRoutesFrom(__DIR__.'/routes.php');
     }
 
 }
