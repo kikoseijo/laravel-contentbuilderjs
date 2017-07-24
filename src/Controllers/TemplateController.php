@@ -25,10 +25,16 @@ class TemplateController extends BaseController
         $inputs = $request->all();
         if ($page_id>0) {
             $template = ContentTemplate::find($page_id);
-            $template->fill($inputs);
+
         } else {
-            $template = ContentTemplate::create($inputs);
+            $template = new ContentTemplate;
         }
+
+        $template->name = $request->get('hidName');
+        $template->title = $request->get('hidTitle');
+        $template->url = $request->get('hidUrl');
+        $template->body = $request->get('hidContent');
+        
         $template->save();
 
         return redirect(route('cb_template.list'));

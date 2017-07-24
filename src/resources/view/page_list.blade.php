@@ -7,7 +7,7 @@
 	@if (isset($templates))
 		@foreach ($templates as $template)
 			<ul>
-				<li><a href="{{ route('cb_template.edit',$templates->id) }}"></a>{!! $templates->name !!}</li>
+				<li><a href="{{ route('cb_template.edit',$template->id) }}"></a>{!! $template->name !!}</li>
 			</ul>
 		@endforeach
 	@endif
