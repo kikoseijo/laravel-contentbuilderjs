@@ -1,5 +1,5 @@
 <!-- Hidden Form Fields to post content -->
-<form id="form1" method="post" style="display:none">
+<form id="form1" target="{{ route('template.save') }}" method="post" style="display:none">
 	<input type="hidden" id="hidHeader" name="hidHeader" />
 	<input type="hidden" id="hidContent" name="hidContent" />
 	<input type="submit" id="btnPost" value="submit" />
@@ -10,10 +10,18 @@
     <button onclick="save()" class="btn btn-primary"> Save </button>
 </div>
 
-
 @push('stylesheets')
   <link href="{{ config('content-builder-js.content_css') }}" rel="stylesheet" type="text/css" />
   <link href="{{ config('content-builder-js.contentbuilder_css') }}" rel="stylesheet" type="text/css" />
+  <style media="screen">
+      .is-container {  margin: 90px auto; max-width: 1050px; width:100%; padding:55px 35px; box-sizing:border-box; }
+      @media all and (max-width: 1080px) {
+          .is-container { margin:0; }
+      }
+      body {margin:0 0 57px} /* give space 70px on the bottom for panel */
+      #panelCms {width:100%;height:57px;border-top: #eee 1px solid;background:rgba(255,255,255,0.95);position:fixed;left:0;bottom:0;padding:10px;box-sizing:border-box;text-align:center;white-space:nowrap;z-index:10001;}
+      #panelCms button {border-radius:4px;padding: 10px 15px;text-transform:uppercase;font-size: 11px;letter-spacing: 1px;line-height: 1;}
+  </style>
 @endpush
 @push('scripts')
   @if (config('content-builder-js.load_jquery'))
@@ -29,23 +37,37 @@
 
 
 <script type="text/javascript">
-
 @if (isset($els))
-        @foreach($els as $el)
+    @foreach($els as $el)
         jQuery(document).ready(function ($) {
             $("#contentarea").contentbuilder({
                 {!! json_encode(config('content-builder-js.'.$el)) !!}
             });
         });
-        @endforeach
+    @endforeach
 @else
-        jQuery(document).ready(function ($) {
-                $("#contentarea").contentbuilder({
-                    @foreach(config('content-builder-js.default') as $key=>$val)
-                        {!! $key !!}: '{!! $val !!}',
-                    @endforeach
-                });
-            });
+    jQuery(document).ready(function ($) {
+        $("#contentarea").contentbuilder({
+            @foreach(config('content-builder-js.default') as $key=>$val)
+                {!! $key !!}: '{!! $val !!}',
+            @endforeach
+        });
+    });
 @endif
-
+    function save() {
+        //Save all images first
+        $("body").saveimages({
+            handler: '/vendor/content-builder-js/saveimage.php',
+            onComplete: function () {
+                //Then save the content
+				var sHeader = $('#headerarea').data('contentbuilder').html(); //Get header
+                var sContent = $('#contentarea').data('contentbuilder').html(); //Get content
+				$('#hidHeader').val(sHeader);
+                $('#hidContent').val(sContent);
+                $('#btnPost').click();
+            }
+        });
+        $("body").data('saveimages').save();
+        $("html").fadeOut(1000);
+    }
 </script>
