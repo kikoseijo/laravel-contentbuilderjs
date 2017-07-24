@@ -3,6 +3,7 @@ namespace Ksoft\ContentBuilderJs;
 
 use Illuminate\Support\Facades\Facade as IlluminateFacade;
 
+
 class Facade extends IlluminateFacade
 {
     /**
@@ -22,6 +23,6 @@ class Facade extends IlluminateFacade
      */
     public static function routes()
     {
-        static::$app->make('router');
+        BuilderServiceProvider::routes();
     }
 }

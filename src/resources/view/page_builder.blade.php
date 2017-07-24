@@ -44,7 +44,7 @@
 	</div>
 </div>
 
-<form id="form1" action="{{ route('template.save') }}" method="POST" style="display:none">
+<form id="form1" action="{{ route('cb_template.save') }}" method="POST" style="display:none">
     {{ csrf_field() }}
 	<input type="hidden" id="hidName" name="hidName" />
 	<input type="hidden" id="hidTitle" name="hidTitle" />

@@ -31,7 +31,7 @@ class TemplateController extends BaseController
         }
         $template->save();
 
-        return redirect(route('template.list'));
+        return redirect(route('cb_template.list'));
     }
 
     public function editTemplatePage(Request $request, $page_id = '')
