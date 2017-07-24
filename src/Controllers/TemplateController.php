@@ -20,9 +20,17 @@ class TemplateController extends BaseController
 
     }
 
-    public function saveTemplatePage(Request $request)
+    public function saveTemplatePage(Request $request, $page_id = '')
     {
-        return $request::all();
+        if ($page_id>0) {
+            $template = ContentTemplate::find($page_id);
+        } else {
+            $template = new ContentTemplate;
+        }
+        $template->fill($request->all());
+        $template->save();
+
+        return redirect(route('template.list'))->withSuccess('Template saved succesfully');
     }
 
     public function editTemplatePage(Request $request, $page_id = '')
