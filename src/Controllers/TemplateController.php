@@ -34,7 +34,7 @@ class TemplateController extends BaseController
         $template->title = $request->get('hidTitle');
         $template->url = $request->get('hidUrl');
         $template->body = $request->get('hidContent');
-        
+
         $template->save();
 
         return redirect(route('cb_template.list'));
@@ -42,6 +42,9 @@ class TemplateController extends BaseController
 
     public function editTemplatePage(Request $request, $page_id = '')
     {
-         return view('content-builder-js::page_builder');
+        if ($page_id>0) {
+            $template = ContentTemplate::find($page_id);
+        }
+         return view('content-builder-js::page_builder', compact('template'));
     }
 }

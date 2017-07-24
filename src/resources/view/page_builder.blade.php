@@ -5,25 +5,27 @@
 <div style="background:#eaeaea;float:left;width:100%">
     <div class="container-fluid">
         <form class="form-horizontal">
-            <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                {!! Form::label('name', 'Template name', ['class' => 'col-sm-3 control-label']) !!}
-                <div class="col-sm-9">
-                    {!! Form::text('name', null, ['class' => 'form-control', 'required' => 'required']) !!}
-                    <small class="text-danger">{{ $errors->first('name') }}</small>
+            <div class="col-xs-9">
+                <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                    {!! Form::label('name', 'Template name', ['class' => 'col-sm-3 control-label']) !!}
+                    <div class="col-sm-9">
+                        {!! Form::text('name', null, ['class' => 'form-control', 'required' => 'required']) !!}
+                        <small class="text-danger">{{ $errors->first('name') }}</small>
+                    </div>
                 </div>
-            </div>
-            <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
-                {!! Form::label('title', 'Template title', ['class' => 'col-sm-3 control-label']) !!}
-                <div class="col-sm-9">
-                    {!! Form::text('title', null, ['class' => 'form-control', 'required' => 'required']) !!}
-                    <small class="text-danger">{{ $errors->first('title') }}</small>
+                <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
+                    {!! Form::label('title', 'Template title', ['class' => 'col-sm-3 control-label']) !!}
+                    <div class="col-sm-9">
+                        {!! Form::text('title', null, ['class' => 'form-control', 'required' => 'required']) !!}
+                        <small class="text-danger">{{ $errors->first('title') }}</small>
+                    </div>
                 </div>
-            </div>
-            <div class="form-group{{ $errors->has('url') ? ' has-error' : '' }}">
-                {!! Form::label('url', 'Template Url', ['class' => 'col-sm-3 control-label']) !!}
-                <div class="col-sm-9">
-                    {!! Form::text('url', null, ['class' => 'form-control', 'required' => 'required']) !!}
-                    <small class="text-danger">{{ $errors->first('url') }}</small>
+                <div class="form-group{{ $errors->has('url') ? ' has-error' : '' }}">
+                    {!! Form::label('url', 'Template Url', ['class' => 'col-sm-3 control-label']) !!}
+                    <div class="col-sm-9">
+                        {!! Form::text('url', null, ['class' => 'form-control', 'required' => 'required']) !!}
+                        <small class="text-danger">{{ $errors->first('url') }}</small>
+                    </div>
                 </div>
             </div>
         </form>
@@ -36,8 +38,8 @@
 		@if(Session::has('myContent'))
 			{!! Session::get('myContent') !!}
 		@else
-			<div class="row clearfix">
-			    <div class="column full">
+			<div class="row">
+			    <div class="col-md-12">
 			        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
 			            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus leo ante, consectetur sit amet vulputate vel, dapibus sit amet lectus.</p>
 			    </div>
