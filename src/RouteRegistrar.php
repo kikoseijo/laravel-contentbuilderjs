@@ -42,15 +42,15 @@ class RouteRegistrar
      */
     public function forTemplates()
     {
-        $this->router->group(['middleware' => ['web', 'auth']], function ($router) {
+        $this->router->group(['middleware' => explode(',', config('content-builder-js.middlewares'))], function ($router) {
 
             $router->post('/save-content-builder-page',[
                 'as'=>'template.save',
-                'uses' => 'Ksoft\ContentBuilderJs\Controllers\TemplateController@saveTemplatePage'
+                'uses' => 'TemplateController@saveTemplatePage'
             ]);	// Saves pages templates.
             $router->get('/content-builder/edit/{page_id?}',[
                 'as'=>'template.edit',
-                'uses' => 'Ksoft\ContentBuilderJs\Controllers\TemplateController@editTemplatePage'
+                'uses' => 'TemplateController@editTemplatePage'
             ]);	// Saves pages templates.
 
         });
