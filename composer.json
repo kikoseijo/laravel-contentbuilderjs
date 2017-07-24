@@ -10,6 +10,9 @@
         }
     ],
    "autoload": {
+       "classmap": [
+            "src"
+        ],
         "psr-4": {
             "Ksoft\\ContentBuilderJs\\": "src/"
         }
