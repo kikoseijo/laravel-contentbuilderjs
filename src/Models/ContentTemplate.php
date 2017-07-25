@@ -9,7 +9,7 @@ class ContentTemplate extends Model
 {
     use Purifiable;
 
-    public $table = 'cbldjs__templates';
+    public $table = 'CBLDJS__templates';
 
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';

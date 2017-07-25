@@ -17,7 +17,7 @@ class CreateBlocksTable extends Migration
      */
     public function up()
     {
-        Schema::create('cbldjs__blocks', function (Blueprint $table) {
+        Schema::create('CBLDJS__blocks', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name')->nullable();
             $table->string('img')->nullable();
@@ -36,6 +36,6 @@ class CreateBlocksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cbldjs__blocks');
+        Schema::dropIfExists('CBLDJS__blocks');
     }
 }

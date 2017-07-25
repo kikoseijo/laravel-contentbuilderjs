@@ -17,7 +17,7 @@ class CreateContentTemplatesTable extends Migration
      */
     public function up()
     {
-        Schema::create('cbldjs__templates', function (Blueprint $table) {
+        Schema::create('CBLDJS__templates', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 160)->nullable();
             $table->string('title', 160)->nullable();
@@ -37,6 +37,6 @@ class CreateContentTemplatesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cbldjs__templates');
+        Schema::dropIfExists('CBLDJS__templates');
     }
 }

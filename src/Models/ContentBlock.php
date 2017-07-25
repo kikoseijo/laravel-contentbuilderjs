@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class ContentBlock extends Model
 {
 
-    public $table = 'cbldjs__blocks';
+    public $table = 'CBLDJS__blocks';
 
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
