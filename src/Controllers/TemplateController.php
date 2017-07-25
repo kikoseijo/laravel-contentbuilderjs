@@ -34,13 +34,10 @@ class TemplateController extends BaseController
         $template->name = $request->get('hidName');
         $template->title = $request->get('hidTitle');
         $template->url = $request->get('hidUrl');
-        //$template->body = $request->get('hidContent');
-        dd($request->get('hidContent'));
-        $template->setPurifiedContent($request->get('hidContent'));
-
+        $template->setPurifiedContent($_POST['hidContent']);
         $template->save();
 
-        session()->flash('status', trans('ticketit::lang.the-ticket-has-been-created'));
+        session()->flash('status', 'Template saved succesfully');
 
         return redirect(route('cb_template.list'));
     }
