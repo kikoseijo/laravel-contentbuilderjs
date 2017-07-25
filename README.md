@@ -30,4 +30,10 @@ make sure you have in layout header ```@stack('stylesheets')``` also in footer `
 
 @include('content-builder-js::tpl')
 
+to be able to save images, need to add one line arround line 50
+
+```
+'<input id="_token" name="_token" type="hidden" value="'+ customval +'" />' +
+```
+
 You are done!

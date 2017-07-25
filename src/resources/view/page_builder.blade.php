@@ -101,13 +101,9 @@
 	@endif
 	    function save() {
 	        //Save all images first
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                }
-            });
 	        $("body").saveimages({
 	            handler: '{{ route('cb_template.save_image', isset($template) ? $template->id : null) }}',
+                customval: '{{ csrf_token() }}',
 	            onComplete: function () {
 	                //Then save the content
 					var sName = $('#name').val(); //Get header
