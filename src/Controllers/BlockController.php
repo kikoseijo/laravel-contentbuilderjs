@@ -32,7 +32,7 @@ class BlockController extends BaseController
 
         $block_image = $request->file('item_image');
         if($block_image){
-            $tmpFilePath = config('content-builder-js.storage_path');
+            $tmpFilePath = config('content-builder-js.storage_path_blocks');
             $hardPath =  str_slug($request['name'], '-').'-'.md5(rand(0,99999));
             $img = Image::make($block_image);
 			$img->fit(194)->save($tmpFilePath.$hardPath.'.jpg');

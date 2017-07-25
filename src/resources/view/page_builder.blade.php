@@ -5,34 +5,29 @@
 @section('content')
 
 <div style="background:#eaeaea;float:left;width:100%">
-    <div class="container-fluid">
         <form class="form">
-            <div class="col-sm-6 col-sm-offset-1 m-t-sm">
-                <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                    {!! Form::label('name', 'Template name', ['class' => 'col-sm-3 control-label']) !!}
-                    <div class="col-sm-9">
-                        {!! Form::text('name', isset($template) ? $template->name : null, ['class' => 'form-control', 'required' => 'required']) !!}
-                        <small class="text-danger">{{ $errors->first('name') }}</small>
-                    </div>
+            <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                {!! Form::label('name', 'Template name', ['class' => 'col-sm-3 control-label']) !!}
+                <div class="col-sm-9">
+                    {!! Form::text('name', isset($template) ? $template->name : null, ['class' => 'form-control', 'required' => 'required']) !!}
+                    <small class="text-danger">{{ $errors->first('name') }}</small>
                 </div>
-                <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
-                    {!! Form::label('title', 'Template title', ['class' => 'col-sm-3 control-label']) !!}
-                    <div class="col-sm-9">
-                        {!! Form::text('title', isset($template) ? $template->title : null, ['class' => 'form-control', 'required' => 'required']) !!}
-                        <small class="text-danger">{{ $errors->first('title') }}</small>
-                    </div>
+            </div>
+            <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
+                {!! Form::label('title', 'Template title', ['class' => 'col-sm-3 control-label']) !!}
+                <div class="col-sm-9">
+                    {!! Form::text('title', isset($template) ? $template->title : null, ['class' => 'form-control', 'required' => 'required']) !!}
+                    <small class="text-danger">{{ $errors->first('title') }}</small>
                 </div>
-                <div class="form-group{{ $errors->has('url') ? ' has-error' : '' }}">
-                    {!! Form::label('url', 'Template Url', ['class' => 'col-sm-3 control-label']) !!}
-                    <div class="col-sm-9">
-                        {!! Form::text('url', isset($template) ? $template->url : null, ['class' => 'form-control', 'required' => 'required']) !!}
-                        <small class="text-danger">{{ $errors->first('url') }}</small>
-                    </div>
+            </div>
+            <div class="form-group{{ $errors->has('url') ? ' has-error' : '' }}">
+                {!! Form::label('url', 'Template Url', ['class' => 'col-sm-3 control-label']) !!}
+                <div class="col-sm-9">
+                    {!! Form::text('url', isset($template) ? $template->url : null, ['class' => 'form-control', 'required' => 'required']) !!}
+                    <small class="text-danger">{{ $errors->first('url') }}</small>
                 </div>
-
             </div>
         </form>
-    </div>
 </div>
 
 <!-- CONTENT -->
