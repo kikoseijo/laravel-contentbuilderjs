@@ -19,6 +19,8 @@
     },
     "minimum-stability" : "stable",
     "require": {
-        "mews/purifier": "^2.0"
+        "mews/purifier": "^2.0",
+        "laravelcollective/html": "^5.4",
+        "intervention/image": "^2.4"
     }
 }

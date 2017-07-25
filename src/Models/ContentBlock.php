@@ -26,4 +26,13 @@ class ContentBlock extends Model
         'html' => 'required'
     ];
 
+    public function imgUrl($size = '194x91')
+    {
+        if ($this->img != '' ) {
+            return  \URL::asset(config('content-builder-js.storage_path').$this->img.'.jpg');
+        } else {
+            return 'http://placehold.it/'.$size.'?text=' . $this->name;
+        }
+    }
+
 }

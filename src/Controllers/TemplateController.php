@@ -34,6 +34,8 @@ class TemplateController extends BaseController
         $template->title = $request->get('hidTitle');
         $template->url = $request->get('hidUrl');
         $template->setPurifiedContent($_POST['hidContent']);
+        // TODO: Make sure Purifier does full saving of all tags, having problems with iframe + div class, i style, i class.
+        $template->html = $_POST['hidContent'];
         $template->save();
 
         session()->flash('status', 'Template saved succesfully');

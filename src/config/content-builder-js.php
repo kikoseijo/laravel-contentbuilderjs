@@ -6,6 +6,7 @@ return [
     'default_layout' => 'content-builder-js::layout',
     'route_prefix' => 'content-builder-js',
     'middlewares' => 'web,auth',
+    'storage_path' => 'upload/block_items/',
     'load_bootstrap' => true,
     'load_jquery' => true,
     'load_jquery_ui' => true,
