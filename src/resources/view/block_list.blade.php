@@ -2,7 +2,7 @@
 
 @section('content')
 
-	@include('content-builder-js::parts.tpl_add_template_btn')
+	@include('content-builder-js::parts.tpl_add_block_btn')
 
 	<div class="table-responisve">
 		<table class="table table-striped">
@@ -17,11 +17,11 @@
 					@foreach ($blocks as $block)
 						<tr>
 							<td>
-								<a href="{{ route('cb_template.edit',$block->id) }}">{!! $block->name !!}</a><br />
+								<a href="{{ route('cb_block.edit',$block->id) }}">{!! $block->name !!}</a><br />
 							</td>
 							<td>
-								<a href="{{ route('cb_template.edit',$block->id) }}" class="btn btn-sm btn-primary"><i class="icon ion-edit"></i></a>
-								<a href="{{ route('cb_template.delete',$block->id) }}" onclick="return confirm('Confirm permanent deletion?')" class="btn btn-sm btn-danger"><i class="icon ion-trash-a"></i></a>
+								<a href="{{ route('cb_block.edit',$block->id) }}" class="btn btn-sm btn-primary"><i class="icon ion-edit"></i></a>
+								<a href="{{ route('cb_block.delete',$block->id) }}" onclick="return confirm('Confirm permanent deletion?')" class="btn btn-sm btn-danger"><i class="icon ion-trash-a"></i></a>
 							</td>
 						</tr>
 					@endforeach
@@ -32,6 +32,6 @@
 	</div>
 
 
-	@include('content-builder-js::parts.tpl_add_template_btn')
+	@include('content-builder-js::parts.tpl_add_block_btn')
 
 @stop

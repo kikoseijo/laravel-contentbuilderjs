@@ -9,8 +9,10 @@
         @stack('stylesheets')
     </head>
     <body>
-        @yield('content')
-        @include('content-builder-js::parts.footer')
-        @stack('scripts')
+        <div class="container">
+            @yield('content')
+        </div>
     </body>
+    @include('content-builder-js::parts.footer')
+    @stack('scripts')
 </html>
