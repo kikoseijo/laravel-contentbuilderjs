@@ -77,14 +77,11 @@ class RouteRegistrar
     public function forImageSaving()
     {
         //Disable CSRX Protection on this one as we cant tune the saveimage_plugin js.
-        $midelwares = $this->custom_middlewares;
-        foreach (array_keys($midelwares, 'web') as $key) {
-            unset($midelwares[$key]);
-        }
-        $this->router->group(['middleware' => $midelwares], function ($router) {
+        $this->router->group(['middleware' => $this->custom_middlewares], function ($router) {
             $router->post('/template-image/save/{block_id?}',[
                 'as'=>'cb_template.save_image',
-                'uses' => '\Ksoft\ContentBuilderJs\Controllers\SaveImageController@save'
+                'uses' => '\Ksoft\ContentBuilderJs\Controllers\SaveImageController@save',
+                'nocsrf' => true,
             ]);	// Save Images
         });
     }
