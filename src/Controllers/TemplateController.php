@@ -14,14 +14,13 @@ class TemplateController extends BaseController
 {
     use AuthorizesRequests;
 
-    public function listTemplates(Request $request)
+    public function list()
     {
         $templates = ContentTemplate::all();
         return view('content-builder-js::page_list', compact('templates'));
-
     }
 
-    public function saveTemplatePage(Request $request, $page_id = '')
+    public function save(Request $request, $page_id = '')
     {
         $inputs = $request->all();
         if ($page_id>0) {
@@ -42,11 +41,23 @@ class TemplateController extends BaseController
         return redirect(route('cb_template.list'));
     }
 
-    public function editTemplatePage(Request $request, $page_id = '')
+    public function edit($page_id = '')
     {
         if ($page_id>0) {
             $template = ContentTemplate::find($page_id);
         }
          return view('content-builder-js::page_builder', compact('template'));
+    }
+
+    public function delete($page_id)
+    {
+        if ($page_id>0) {
+            $template = ContentTemplate::find($page_id);
+            if ($template) {
+                $template->delete();
+                session()->flash('status', 'Template deleted succesfully');
+            }
+        }
+        return back();
     }
 }

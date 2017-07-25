@@ -46,18 +46,23 @@ class RouteRegistrar
 
             $router->post('/save/{page_id?}',[
                 'as'=>'cb_template.save',
-                'uses' => '\Ksoft\ContentBuilderJs\Controllers\TemplateController@saveTemplatePage'
-            ]);	// Saves pages templates.
+                'uses' => '\Ksoft\ContentBuilderJs\Controllers\TemplateController@save'
+            ]);	// Save
 
             $router->get('/edit/{page_id?}',[
                 'as'=>'cb_template.edit',
-                'uses' => '\Ksoft\ContentBuilderJs\Controllers\TemplateController@editTemplatePage'
-            ]);	// Saves pages templates.
+                'uses' => '\Ksoft\ContentBuilderJs\Controllers\TemplateController@edit'
+            ]);	// Edit
 
             $router->get('/templates',[
                 'as'=>'cb_template.list',
-                'uses' => '\Ksoft\ContentBuilderJs\Controllers\TemplateController@listTemplates'
-            ]);	// Saves pages templates.
+                'uses' => '\Ksoft\ContentBuilderJs\Controllers\TemplateController@list'
+            ]);	// List
+
+            $router->get('/template/{page_id}/delete',[
+                'as'=>'cb_template.delete',
+                'uses' => '\Ksoft\ContentBuilderJs\Controllers\TemplateController@delete'
+            ]);	// Delete
 
         });
     }
@@ -69,6 +74,28 @@ class RouteRegistrar
      */
     public function forBlockBuilder()
     {
+        $this->router->group(['middleware' => explode(',', config('content-builder-js.middlewares'))], function ($router) {
 
+            $router->post('/save/{block_id?}',[
+                'as'=>'cb_block.save',
+                'uses' => '\Ksoft\ContentBuilderJs\Controllers\BlockController@save'
+            ]);	// Save
+
+            $router->get('/edit/{block_id?}',[
+                'as'=>'cb_block.edit',
+                'uses' => '\Ksoft\ContentBuilderJs\Controllers\BlockController@edit'
+            ]);	// Edit
+
+            $router->get('/templates',[
+                'as'=>'cb_block.list',
+                'uses' => '\Ksoft\ContentBuilderJs\Controllers\BlockController@list'
+            ]);	// List
+
+            $router->get('/template/{block_id}/delete',[
+                'as'=>'cb_block.delete',
+                'uses' => '\Ksoft\ContentBuilderJs\Controllers\BlockController@delete'
+            ]);	// Delete
+
+        });
     }
 }
