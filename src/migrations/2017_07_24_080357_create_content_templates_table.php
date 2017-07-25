@@ -23,8 +23,8 @@ class CreateContentTemplatesTable extends Migration
             $table->string('title', 160)->nullable();
             $table->string('url', 160)->nullable();
             $table->string('lang', 2)->nullable();
-            $table->text('short_text')->nullable();
-            $table->text('body')->nullable();
+            $table->text('content')->nullable();
+            $table->text('html')->nullable();
             $table->timestamps();
             $table->unique('id', 'id');
         });

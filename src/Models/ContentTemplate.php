@@ -2,10 +2,12 @@
 
 namespace Ksoft\ContentBuilderJs\Models;
 
-use Eloquent as Model;
+use Illuminate\Database\Eloquent\Model;
+use Ksoft\ContentBuilderJs\Traits\Purifiable;
 
 class ContentTemplate extends Model
 {
+    use Purifiable;
 
     public $table = 'cbldjs__templates';
 

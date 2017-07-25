@@ -28,15 +28,18 @@ class TemplateController extends BaseController
             $template = ContentTemplate::find($page_id);
 
         } else {
-            $template = new ContentTemplate;
+            $template = new ContentTemplate();
         }
 
         $template->name = $request->get('hidName');
         $template->title = $request->get('hidTitle');
         $template->url = $request->get('hidUrl');
-        $template->body = htmlspecialchars($request->get('hidContent'));
+        $template->body = $request->get('hidContent');
+        $template->setPurifiedContent($request->get('hidContent'));
 
         $template->save();
+
+        session()->flash('status', trans('ticketit::lang.the-ticket-has-been-created'));
 
         return redirect(route('cb_template.list'));
     }
