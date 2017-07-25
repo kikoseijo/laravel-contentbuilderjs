@@ -5,7 +5,7 @@
 <div style="background:#eaeaea;float:left;width:100%">
     <div class="container-fluid">
         <form class="form-horizontal">
-            <div class="col-xs-9">
+            <div class="col-sm-6 col-sm-offset-3">
                 <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                     {!! Form::label('name', 'Template name', ['class' => 'col-sm-3 control-label']) !!}
                     <div class="col-sm-9">
@@ -27,6 +27,9 @@
                         <small class="text-danger">{{ $errors->first('url') }}</small>
                     </div>
                 </div>
+                <div class="col-sm-9 col-sm-offset-3">
+                    <a href="{{route('cb_template.list')}}" class="btn btn-lg btn-default">Back </a>
+                </div>
             </div>
         </form>
     </div>
@@ -36,7 +39,7 @@
 <div style="background:#f7f7f7;float:left;width:100%">
 	<div id="contentarea" class="is-container container-fluid">
 		@if(isset($template))
-			{!! $template->body !!}
+            {!!html_entity_decode($template->body)!!}
 		@else
 			<div class="row">
 			    <div class="col-md-12">
@@ -64,11 +67,6 @@
 @stop
 
 @push('stylesheets')
-    @if (config('content-builder-js.load_bootstrap'))
-        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    @endif
-    <link href="{{ config('content-builder-js.content_css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ config('content-builder-js.contentbuilder_css') }}" rel="stylesheet" type="text/css" />
     <style media="screen">
         .is-container {  margin: 90px auto; max-width: 1050px; width:100%; padding:55px 35px; box-sizing:border-box; }
         @media all and (max-width: 1080px) {
@@ -81,17 +79,7 @@
 @endpush
 
 @push('scripts')
-    @if (config('content-builder-js.load_bootstrap'))
-        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    @endif
-	@if (config('content-builder-js.load_jquery'))
-		<script type="text/javascript" src="{{ config('content-builder-js.jquery') }}"></script>
-	@endif
-	@if (config('content-builder-js.load_jquery_ui'))
-		<script type="text/javascript" src="{{ config('content-builder-js.jquery-ui') }}"></script>
-	@endif
-	<script type="text/javascript" src="{{ config('content-builder-js.contentbuilderjs-src') }}"></script>
-	<script type="text/javascript" src="{{ config('content-builder-js.saveimages') }}"></script>
+
 	<script type="text/javascript">
 	@if (isset($els))
 	    @foreach($els as $el)
