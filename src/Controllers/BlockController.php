@@ -32,8 +32,7 @@ class BlockController extends BaseController
         $block->name = $request->get('name');
         $block->js = $request->get('js');
         $block->css = $request->get('css');
-        $block->html = $request->get('html');
-        $block->html = Purifier::clean($_POST['body']);
+        $block->html = Purifier::clean($_POST['html']);
         $block->save();
 
         session()->flash('status', 'Block saved succesfully');
