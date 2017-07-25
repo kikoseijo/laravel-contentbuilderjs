@@ -16,7 +16,7 @@ trait Purifiable
     public function setPurifiedContent($rawHtml)
     {
         $this->content = Purifier::clean($rawHtml, ['HTML.Allowed' => '']);
-        $this->html = Purifier::clean($rawHtml);
+        $this->html = $rawHtml;//Purifier::clean($rawHtml);
 
         return $this;
     }
