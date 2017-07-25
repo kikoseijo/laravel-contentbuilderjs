@@ -5,7 +5,7 @@
 @section('content')
     <div class="box box-primary">
         <div class="box-body">
-            <form id="form1" action="{{ route('cb_block.save', isset($block) ? $block->id : null) }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('cb_block.save', isset($block) ? $block->id : null) }}" method="POST" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                     {!! Form::label('name', 'Block name') !!}
