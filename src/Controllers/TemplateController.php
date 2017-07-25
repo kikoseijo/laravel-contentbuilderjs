@@ -8,6 +8,7 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 use Ksoft\ContentBuilderJs\Models\ContentTemplate;
+use Ksoft\ContentBuilderJs\Models\ContentBlock;
 use Mews\Purifier\Facades\Purifier;
 
 class TemplateController extends BaseController
@@ -17,6 +18,7 @@ class TemplateController extends BaseController
     public function list()
     {
         $templates = ContentTemplate::all();
+        //$blocks = ContentBlock::all();
         return view('content-builder-js::page_list', compact('templates'));
     }
 
@@ -54,6 +56,7 @@ class TemplateController extends BaseController
     public function delete($page_id)
     {
         if ($page_id>0) {
+            // TODO: Delete all template images.
             $template = ContentTemplate::find($page_id);
             if ($template) {
                 $template->delete();

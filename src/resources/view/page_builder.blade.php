@@ -103,7 +103,7 @@
 	    function save() {
 	        //Save all images first
 	        $("body").saveimages({
-	            handler: '/vendor/content-builder-js/saveimage.php',
+	            handler: '{{ route('cb_template.save_image', isset($template) ? $template->id : null) }}',
 	            onComplete: function () {
 	                //Then save the content
 					var sName = $('#name').val(); //Get header

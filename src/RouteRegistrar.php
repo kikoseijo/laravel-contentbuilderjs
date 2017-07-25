@@ -47,7 +47,12 @@ class RouteRegistrar
             $router->post('/template/save/{page_id?}',[
                 'as'=>'cb_template.save',
                 'uses' => '\Ksoft\ContentBuilderJs\Controllers\TemplateController@save'
-            ]);	// Save
+            ]);	// Save Template
+
+            $router->post('/template-image/save/{block_id?}',[
+                'as'=>'cb_template.save_image',
+                'uses' => '\Ksoft\ContentBuilderJs\Controllers\SaveImageController@save'
+            ]);	// Save Images
 
             $router->get('/template/edit/{page_id?}',[
                 'as'=>'cb_template.edit',
