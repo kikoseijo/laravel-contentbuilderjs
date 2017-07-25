@@ -6,8 +6,8 @@
 
 <div style="background:#eaeaea;float:left;width:100%">
     <div class="container-fluid">
-        <form class="form-horizontal">
-            <div class="col-sm-6 col-sm-offset-3">
+        <form class="form">
+            <div class="col-sm-6 col-sm-offset-1 m-t-sm">
                 <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                     {!! Form::label('name', 'Template name', ['class' => 'col-sm-3 control-label']) !!}
                     <div class="col-sm-9">
@@ -29,9 +29,7 @@
                         <small class="text-danger">{{ $errors->first('url') }}</small>
                     </div>
                 </div>
-                <div class="col-sm-9 col-sm-offset-3">
-                    <a href="{{route('cb_template.list')}}" class="btn btn-lg btn-default">Back </a>
-                </div>
+
             </div>
         </form>
     </div>
@@ -64,6 +62,7 @@
 
 <div id="panelCms">
     <button onclick="save()" class="btn btn-primary"> Save </button>
+    <a href="{{route('cb_template.list')}}" class="btn btn-default"> Back </a>
 </div>
 
 @stop
