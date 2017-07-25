@@ -1,5 +1,7 @@
 @extends(config('content-builder-js.default_layout'))
 
+@section('title', 'Templates')
+
 @section('content')
 
 	@include('content-builder-js::parts.tpl_add_template_btn')
@@ -22,8 +24,8 @@
 										<a href="{{ route('cb_template.edit',$template->id) }}">{!! $template->name !!}</a><br />
 									</td>
 									<td>
-										<a href="{{ route('cb_template.edit',$template->id) }}" class="btn btn-sm btn-primary"><i class="icon ion-edit"></i></a>
-										<a href="{{ route('cb_template.delete',$template->id) }}" onclick="return confirm('Confirm permanent deletion?')" class="btn btn-sm btn-danger"><i class="icon ion-trash-a"></i></a>
+										<a href="{{ route('cb_template.edit',$template->id) }}" class="btn btn-sm btn-primary"><i class="fa fa-edit"></i></a>
+										<a href="{{ route('cb_template.delete',$template->id) }}" onclick="return confirm('Confirm permanent deletion?')" class="btn btn-sm btn-danger"><i class="fa fa-trash-o"></i></a>
 									</td>
 								</tr>
 							@endforeach

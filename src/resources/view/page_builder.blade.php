@@ -1,5 +1,7 @@
 @extends(config('content-builder-js.default_layout'))
 
+@section('title', 'Edit template')
+
 @section('content')
 
 <div style="background:#eaeaea;float:left;width:100%">

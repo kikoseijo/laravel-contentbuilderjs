@@ -1,5 +1,7 @@
 @extends(config('content-builder-js.default_layout'))
 
+@section('title', 'Edit custom block')
+
 @section('content')
     <div class="box box-primary">
         <div class="box-body">
@@ -7,7 +9,7 @@
                 {{ csrf_field() }}
                 <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                     {!! Form::label('name', 'Block name') !!}
-                    {!! Form::text('name', null, ['class' => 'form-control', 'required' => 'required']) !!}
+                    {!! Form::text('name', isset($block) ? $block->name : null, ['class' => 'form-control', 'required' => 'required']) !!}
                     <small class="text-danger">{{ $errors->first('name') }}</small>
                 </div>
                 <div class="form-group{{ $errors->has('item_image') ? ' has-error' : '' }}">
