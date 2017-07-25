@@ -1,4 +1,4 @@
-@extends(config('content-builder-js.default_layout'))
+@extends('content-builder-js::layout')
 
 @section('title', 'Edit template')
 
