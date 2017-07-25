@@ -15,7 +15,7 @@ class ContentTemplate extends Model
     const UPDATED_AT = 'updated_at';
 
     protected $fillable = [
-        'name', 'title', 'url', 'body', 'lang', 'short_text'
+        'name', 'title', 'url', 'html', 'lang', 'content'
     ];
 
     /**

@@ -39,7 +39,13 @@
 <div style="background:#f7f7f7;float:left;width:100%">
 	<div id="contentarea" class="is-container container-fluid">
 		@if(isset($template))
-            {!!html_entity_decode($template->body)!!}
+
+            {!!html_entity_decode($template->html)!!}
+
+            <br />-------<br />
+            
+            {!!$template->html!!}
+
 		@else
 			<div class="row">
 			    <div class="col-md-12">
