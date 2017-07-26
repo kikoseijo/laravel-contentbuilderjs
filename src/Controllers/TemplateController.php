@@ -50,7 +50,8 @@ class TemplateController extends BaseController
         if ($page_id>0) {
             $template = ContentTemplate::find($page_id);
         }
-         return view('content-builder-js::page_builder', compact('template'));
+        $els = ['custom'];
+        return view('content-builder-js::page_builder', compact('template', 'els'));
     }
 
     public function delete($page_id)

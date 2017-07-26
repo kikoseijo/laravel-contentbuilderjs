@@ -23,6 +23,15 @@ return [
 		'toolbar' => 'left',
 		'iconselect' => '/vendor/content-builder-js/assets/ionicons/selecticon.html',
 	],
+    'use_custom_snippets' => false,
+	'custom' => [
+		'snippetFile' => '/storage/block_snippets/snippets.html',
+		'snippetOpen' => true,
+		'toolbar' => 'left',
+		'iconselect' => '/vendor/content-builder-js/assets/ionicons/selecticon.html',
+	],
+
+
 
     'categories' => [
         '0' =>'Default',
