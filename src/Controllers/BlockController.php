@@ -77,9 +77,10 @@ class BlockController extends BaseController
     protected function updateSnippets(){
 
         $blocks = ContentBlock::all();
-        $snippetFile = 'public/content_snippets/snippets.html';
+        $snippetPath = config('content-builder-js.storage_path_snippets','public/content_snippets/');
+        $snippetFile = $tmpFilePath . 'snippets.html';
 
-        Storage::put($snippetFile, '<!-- <Today::> -->');
+        Storage::put($snippetFile, '<!-- <Today::> -->', 'public');
         // Append to a file
         foreach ($blocks as $block) {
             $newBlock = '<div data-thumb="'.$block->imgUrl().'">' . "\n";

@@ -8,6 +8,7 @@ return [
     'middlewares' => 'web,auth',
     'storage_path_blocks' => 'public/block_thumbs/',
     'storage_path_images' => 'public/block_media/',
+    'storage_path_snippets' => 'public/content_snippets/',
     'load_bootstrap' => true,
     'load_jquery' => true,
     'load_jquery_ui' => true,
