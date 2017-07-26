@@ -6,7 +6,7 @@ return [
     'default_layout' => 'content-builder-js::layout', // Common files  layouts.default
     'route_prefix' => 'content-builder-js',
     'middlewares' => 'web,auth',
-    'storage_path_blocks' => 'public/block_items/',
+    'storage_path_blocks' => 'public/block_thumbs/',
     'storage_path_images' => 'public/block_media/',
     'load_bootstrap' => true,
     'load_jquery' => true,
