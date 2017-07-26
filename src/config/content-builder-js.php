@@ -11,6 +11,7 @@ return [
     'storage_path_images' => 'public/block_media/',
     'storage_path_snippets' => 'public/block_snippets/',
     'load_bootstrap' => true,
+    'load_fontawesome' => true,
     'load_jquery' => true,
     'load_jquery_ui' => true,
     'jquery' => '/vendor/content-builder-js/contentbuilder/jquery.min.js',
