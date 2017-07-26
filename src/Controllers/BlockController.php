@@ -7,9 +7,10 @@ use Illuminate\Http\Request;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
-use Intervention\Image\Facades\Image;
 use Ksoft\ContentBuilderJs\Models\ContentBlock;
 use Mews\Purifier\Facades\Purifier;
+use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Storage;
 
 class BlockController extends BaseController
 {
