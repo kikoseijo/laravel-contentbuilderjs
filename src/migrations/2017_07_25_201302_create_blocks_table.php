@@ -21,6 +21,7 @@ class CreateBlocksTable extends Migration
             $table->increments('id');
             $table->string('name')->nullable();
             $table->string('img')->nullable();
+            $table->integer('category_id')->unsigned();
             $table->text('css')->nullable();
             $table->text('js')->nullable();
             $table->text('html')->nullable();

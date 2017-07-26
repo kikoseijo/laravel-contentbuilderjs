@@ -40,6 +40,7 @@ class BlockController extends BaseController
         }
 
         $block->name = $request->get('name');
+        $block->category_id = $request->get('category_id');
         $block->js = $request->get('js');
         $block->css = $request->get('css');
         $block->html = Purifier::clean($_POST['html']);

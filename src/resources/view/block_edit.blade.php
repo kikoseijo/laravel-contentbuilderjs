@@ -7,16 +7,29 @@
         <div class="box-body">
             <form action="{{ route('cb_block.save', isset($block) ? $block->id : null) }}" method="POST" enctype="multipart/form-data">
                 {{ csrf_field() }}
-                <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                    {!! Form::label('name', 'Block name') !!}
-                    {!! Form::text('name', isset($block) ? $block->name : null, ['class' => 'form-control', 'required' => 'required']) !!}
-                    <small class="text-danger">{{ $errors->first('name') }}</small>
-                </div>
-                <div class="form-group{{ $errors->has('item_image') ? ' has-error' : '' }}">
-                    {!! Form::label('item_image', 'Block Image:') !!}
-                    {!! Form::file('item_image') !!}
-                    {{-- <p class="help-block">Will scale image to 300x300 and 150x150</p> --}}
-                    <small class="text-danger">{{ $errors->first('item_image') }}</small>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                            {!! Form::label('name', 'Block name') !!}
+                            {!! Form::text('name', isset($block) ? $block->name : null, ['class' => 'form-control', 'required' => 'required']) !!}
+                            <small class="text-danger">{{ $errors->first('name') }}</small>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group{{ $errors->has('category_id') ? ' has-error' : '' }}">
+                            {!! Form::label('category_id', 'Block Category') !!}
+                            {!! Form::select('category_id', config('content-builder-js.categories'), isset($block) ? $block->category_id : null, ['class' => 'form-control', 'required' => 'required']) !!}
+                            <small class="text-danger">{{ $errors->first('category_id') }}</small>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group{{ $errors->has('item_image') ? ' has-error' : '' }}">
+                            {!! Form::label('item_image', 'Block Image:') !!}
+                            {!! Form::file('item_image') !!}
+                            {{-- <p class="help-block">Will scale image to 300x300 and 150x150</p> --}}
+                            <small class="text-danger">{{ $errors->first('item_image') }}</small>
+                        </div>
+                    </div>
                 </div>
                 <div class="form-group{{ $errors->has('html') ? ' has-error' : '' }}">
                     {!! Form::label('html', 'Block HTML') !!}

@@ -3,6 +3,7 @@
 namespace Ksoft\ContentBuilderJs\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class ContentBlock extends Model
 {
@@ -13,7 +14,7 @@ class ContentBlock extends Model
     const UPDATED_AT = 'updated_at';
 
     protected $fillable = [
-        'name', 'img', 'css', 'js', 'html'
+        'name', 'img', 'css', 'js', 'html', 'category_id'
     ];
 
     /**
@@ -29,7 +30,7 @@ class ContentBlock extends Model
     public function imgUrl($size = '194x91')
     {
         if ($this->img != '' ) {
-            return  \URL::asset(config('content-builder-js.storage_path_blocks').$this->img.'.jpg');
+            return Storage::url(config('content-builder-js.storage_path_blocks').$this->img.'.jpg');
         } else {
             return 'http://placehold.it/'.$size.'?text=' . $this->name;
         }
