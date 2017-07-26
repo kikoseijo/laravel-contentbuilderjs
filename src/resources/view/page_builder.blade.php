@@ -79,11 +79,11 @@
 	<script type="text/javascript">
 	@if (isset($els) && config('content-builder-js.use_custom_snippets'))
 	    @foreach($els as $el)
-	        jQuery(document).ready(function ($) {
-	            $("#contentarea").contentbuilder({
-	                {!! json_encode(config('content-builder-js.'.$el)) !!}
-	            });
-	        });
+        jQuery(document).ready(function ($) {
+            $("#contentarea").contentbuilder(
+                {!! json_encode(config('content-builder-js.'.$el)) !!}
+            );
+        });
 	    @endforeach
 	@else
 	    jQuery(document).ready(function ($) {
