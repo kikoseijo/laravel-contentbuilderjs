@@ -87,11 +87,11 @@ class BlockController extends BaseController
         Storage::put($jsFile, '<!-- <Today::> -->', 'public');
         // Append to a file
         foreach ($blocks as $block) {
-            $newBlock = '<div data-thumb="'.$block->imgUrl().'">' . "\n";
-            $newBlock .= '   <div>' . "\n";
-            $newBlock .= '       ' . $block->html . "\n";
-            $newBlock .= '   </div>' . "\n";
-            $newBlock .= '</div>';
+            $htmlBlock = '<div data-thumb="'.$block->imgUrl().'">' . "\n";
+            $htmlBlock .= '   <div>' . "\n";
+            $htmlBlock .= '       ' . $block->html . "\n";
+            $htmlBlock .= '   </div>' . "\n";
+            $htmlBlock .= '</div>';
             Storage::append($snippetFile, $htmlBlock);
             Storage::append($cssFile, $block->css);
             Storage::append($jsFile, $block->js);
