@@ -14,18 +14,23 @@
 						<tr>
 							<th></th>
 							<th>Block name</th>
+							<th>Block category</th>
 							<th>Actions</th>
 						</tr>
 					</thead>
 					<tbody>
 						@if (isset($blocks))
+							<?php $cats = config('content-builder-js.categories');?>
 							@foreach ($blocks as $block)
 								<tr>
 									<td>
-										<img src="{{$block->imgUrl()}}" height="32" alt="">
+										<a href="{{ route('cb_block.edit',$block->id) }}"><img src="{{$block->imgUrl()}}" height="32" alt="{!! $block->name !!}"></a>
 									</td>
 									<td>
 										<a href="{{ route('cb_block.edit',$block->id) }}">{!! $block->name !!}</a>
+									</td>
+									<td>
+										{!! $cats[$block->category_id] !!}
 									</td>
 									<td>
 										<a href="{{ route('cb_block.edit',$block->id) }}" class="btn btn-sm btn-primary"><i class="fa fa-edit"></i></a>
