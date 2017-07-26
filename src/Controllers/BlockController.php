@@ -47,6 +47,8 @@ class BlockController extends BaseController
         $block->html = Purifier::clean($_POST['html']);
         $block->save();
 
+        $this->updateSnippets();
+
         session()->flash('status', 'Block saved succesfully');
 
         return redirect(route('cb_block.list'));
@@ -70,5 +72,22 @@ class BlockController extends BaseController
             }
         }
         return back();
+    }
+
+    protected function updateSnippets(){
+
+        $blocks = ContentBlock::all();
+        $snippetFile = 'public/content_snippets/snippets.html';
+
+        Storage::put($snippetFile, '<!-- <Today::> -->');
+        // Append to a file
+        foreach ($blocks as $block) {
+            $newBlock = '<div data-thumb="'.$block->imgUrl().'">' . "\n";
+            $newBlock = '   <div>' . "\n";
+            $newBlock = '       ' . $block->html . "\n";
+            $newBlock = '   </div>' . "\n";
+            $newBlock = '</div>' . "\n";
+            Storage::append($snippetFile, $newBlock);
+        }
     }
 }
