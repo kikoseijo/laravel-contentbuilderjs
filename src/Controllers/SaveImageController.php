@@ -33,7 +33,7 @@ class SaveImageController extends BaseController
         }
 
         // Save image
-        Storage::put($path . $image, base64_decode($b64str));
+        Storage::put($path . $image, base64_decode($b64str), 'public');
         if (Storage::exists($path . $image)) {
             $url = Storage::url($path . $image);
             echo "<html><body onload=\"parent.document.getElementById('img-" . $count . "').setAttribute('src','" . $url . "');  parent.document.getElementById('img-" . $count . "').removeAttribute('id') \"></body></html>";
