@@ -17,7 +17,8 @@ class RouteRegistrar
     /**
      * Create a new route registrar instance.
      *
-     * @param  \Illuminate\Contracts\Routing\Registrar  $router
+     * @param \Illuminate\Contracts\Routing\Registrar $router
+     *
      * @return void
      */
     public function __construct(Router $router)
@@ -46,29 +47,28 @@ class RouteRegistrar
     public function forTemplates()
     {
         $this->router->group(['middleware' => $this->custom_middlewares], function ($router) {
+            $router->post('/template/save/{page_id?}', [
+                'as'   => 'cb_template.save',
+                'uses' => '\Ksoft\ContentBuilderJs\Controllers\TemplateController@save',
+            ]);    // Save Template
 
-            $router->post('/template/save/{page_id?}',[
-                'as'=>'cb_template.save',
-                'uses' => '\Ksoft\ContentBuilderJs\Controllers\TemplateController@save'
-            ]);	// Save Template
+            $router->get('/template/edit/{page_id?}', [
+                'as'   => 'cb_template.edit',
+                'uses' => '\Ksoft\ContentBuilderJs\Controllers\TemplateController@edit',
+            ]);    // Edit
 
-            $router->get('/template/edit/{page_id?}',[
-                'as'=>'cb_template.edit',
-                'uses' => '\Ksoft\ContentBuilderJs\Controllers\TemplateController@edit'
-            ]);	// Edit
+            $router->get('/templates', [
+                'as'   => 'cb_template.list',
+                'uses' => '\Ksoft\ContentBuilderJs\Controllers\TemplateController@list',
+            ]);    // List
 
-            $router->get('/templates',[
-                'as'=>'cb_template.list',
-                'uses' => '\Ksoft\ContentBuilderJs\Controllers\TemplateController@list'
-            ]);	// List
-
-            $router->get('/template/{page_id}/delete',[
-                'as'=>'cb_template.delete',
-                'uses' => '\Ksoft\ContentBuilderJs\Controllers\TemplateController@delete'
-            ]);	// Delete
-
+            $router->get('/template/{page_id}/delete', [
+                'as'   => 'cb_template.delete',
+                'uses' => '\Ksoft\ContentBuilderJs\Controllers\TemplateController@delete',
+            ]);    // Delete
         });
     }
+
     /**
      * Register the routes needed for authorization.
      *
@@ -78,11 +78,11 @@ class RouteRegistrar
     {
         //Disable CSRX Protection on this one as we cant tune the saveimage_plugin js.
         $this->router->group(['middleware' => $this->custom_middlewares], function ($router) {
-            $router->post('/template-image/save/{block_id?}',[
-                'as'=>'cb_template.save_image',
-                'uses' => '\Ksoft\ContentBuilderJs\Controllers\SaveImageController@save',
+            $router->post('/template-image/save/{block_id?}', [
+                'as'     => 'cb_template.save_image',
+                'uses'   => '\Ksoft\ContentBuilderJs\Controllers\SaveImageController@save',
                 'nocsrf' => true,
-            ]);	// Save Images
+            ]);    // Save Images
         });
     }
 
@@ -94,27 +94,25 @@ class RouteRegistrar
     public function forBlockBuilder()
     {
         $this->router->group(['middleware' => $this->custom_middlewares], function ($router) {
+            $router->post('/block/save/{block_id?}', [
+                'as'   => 'cb_block.save',
+                'uses' => '\Ksoft\ContentBuilderJs\Controllers\BlockController@save',
+            ]);    // Save
 
-            $router->post('/block/save/{block_id?}',[
-                'as'=>'cb_block.save',
-                'uses' => '\Ksoft\ContentBuilderJs\Controllers\BlockController@save'
-            ]);	// Save
+            $router->get('/block/edit/{block_id?}', [
+                'as'   => 'cb_block.edit',
+                'uses' => '\Ksoft\ContentBuilderJs\Controllers\BlockController@edit',
+            ]);    // Edit
 
-            $router->get('/block/edit/{block_id?}',[
-                'as'=>'cb_block.edit',
-                'uses' => '\Ksoft\ContentBuilderJs\Controllers\BlockController@edit'
-            ]);	// Edit
+            $router->get('/blocks', [
+                'as'   => 'cb_block.list',
+                'uses' => '\Ksoft\ContentBuilderJs\Controllers\BlockController@list',
+            ]);    // List
 
-            $router->get('/blocks',[
-                'as'=>'cb_block.list',
-                'uses' => '\Ksoft\ContentBuilderJs\Controllers\BlockController@list'
-            ]);	// List
-
-            $router->get('/block/{block_id}/delete',[
-                'as'=>'cb_block.delete',
-                'uses' => '\Ksoft\ContentBuilderJs\Controllers\BlockController@delete'
-            ]);	// Delete
-
+            $router->get('/block/{block_id}/delete', [
+                'as'   => 'cb_block.delete',
+                'uses' => '\Ksoft\ContentBuilderJs\Controllers\BlockController@delete',
+            ]);    // Delete
         });
     }
 }
