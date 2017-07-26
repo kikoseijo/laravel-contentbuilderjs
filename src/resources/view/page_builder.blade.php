@@ -114,7 +114,7 @@
 	            }
 	        });
 	        $("body").data('saveimages').save();
-	        $("html").fadeOut(1000);
+	        $("html").fadeOut(500).fadeIn(500);
 	    }
 	</script>
 @endpush
