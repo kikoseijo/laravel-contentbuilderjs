@@ -35,10 +35,10 @@ class SaveImageController extends BaseController
         // Save image
         Storage::put($path . $image, base64_decode($b64str))
 
-        if (!Storage::exits($path . $image)) {
-            echo "<html><body onload=\"alert('Saving image to folder failed. Folder ".$path." not exists.')\"></body></html>";
+        if (Storage::exists($path . $image)) {
+            echo "<html><body onload=\"parent.document.getElementById('img-" . $count . "').setAttribute('src','" . $path . $image . "');  parent.document.getElementById('img-" . $count . "').removeAttribute('id') \"></body></html>";
         } else {
-          echo "<html><body onload=\"parent.document.getElementById('img-" . $count . "').setAttribute('src','" . $path . $image . "');  parent.document.getElementById('img-" . $count . "').removeAttribute('id') \"></body></html>";
+            echo "<html><body onload=\"alert('Saving image to folder failed. Folder ".$path." not exists.')\"></body></html>";
         }
 
     }

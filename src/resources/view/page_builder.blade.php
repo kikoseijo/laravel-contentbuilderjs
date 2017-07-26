@@ -4,8 +4,8 @@
 
 @section('content')
 
-<div style="background:#eaeaea;float:left;width:100%">
-        <form class="form">
+<div style="background:#eaeaea;float:left;width:100%;padding:15px;">
+        <form class="form-horizontal">
             <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                 {!! Form::label('name', 'Template name', ['class' => 'col-sm-3 control-label']) !!}
                 <div class="col-sm-9">
