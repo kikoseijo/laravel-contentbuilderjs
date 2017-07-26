@@ -77,18 +77,24 @@ class BlockController extends BaseController
     protected function updateSnippets(){
 
         $blocks = ContentBlock::all();
-        $snippetPath = config('content-builder-js.storage_path_snippets','public/content_snippets/');
-        $snippetFile = $tmpFilePath . 'snippets.html';
+        $snippetPath = config('content-builder-js.storage_path_snippets','public/block_snippets/');
+        $snippetFile = $snippetPath . 'snippets.html';
+        $cssFile = $snippetPath . 'content.css';
+        $jsFile = $snippetPath . 'js.js';
 
         Storage::put($snippetFile, '<!-- <Today::> -->', 'public');
+        Storage::put($cssFile, '<!-- <Today::> -->', 'public');
+        Storage::put($jsFile, '<!-- <Today::> -->', 'public');
         // Append to a file
         foreach ($blocks as $block) {
             $newBlock = '<div data-thumb="'.$block->imgUrl().'">' . "\n";
-            $newBlock = '   <div>' . "\n";
-            $newBlock = '       ' . $block->html . "\n";
-            $newBlock = '   </div>' . "\n";
-            $newBlock = '</div>' . "\n";
-            Storage::append($snippetFile, $newBlock);
+            $newBlock .= '   <div>' . "\n";
+            $newBlock .= '       ' . $block->html . "\n";
+            $newBlock .= '   </div>' . "\n";
+            $newBlock .= '</div>';
+            Storage::append($snippetFile, $htmlBlock);
+            Storage::append($cssFile, $block->css);
+            Storage::append($jsFile, $block->js);
         }
     }
 }
