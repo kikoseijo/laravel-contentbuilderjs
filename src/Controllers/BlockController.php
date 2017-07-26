@@ -78,13 +78,16 @@ class BlockController extends BaseController
 
         $blocks = ContentBlock::all();
         $snippetPath = config('content-builder-js.storage_path_snippets','public/block_snippets/');
+        $baseSnippetPath = config('content-builder-js.default.snippetFile');
+        $baseCssPath = str_replace('/snippets', '/content',  str_replace('.html', '.css', $baseSnippetPath));
         $snippetFile = $snippetPath . 'snippets.html';
         $cssFile = $snippetPath . 'content.css';
         $jsFile = $snippetPath . 'js.js';
-
-        Storage::put($snippetFile, '<!-- <Today::> -->', 'public');
-        Storage::put($cssFile, '<!-- <Today::> -->', 'public');
-        Storage::put($jsFile, '<!-- <Today::> -->', 'public');
+        $base_snippets = Storage::get($baseSnippetPath):
+        $base_css = Storage::get($baseCssPath):
+        Storage::put($snippetFile, $base_snippets, 'public');
+        Storage::put($cssFile, $base_css, 'public');
+        Storage::put($jsFile, '', 'public');
         // Append to a file
         $i=0;
         foreach ($blocks as $block) {
