@@ -12,6 +12,7 @@
 				<table class="table table-striped">
 					<thead>
 						<tr>
+							<th></th>
 							<th>Block name</th>
 							<th>Actions</th>
 						</tr>
@@ -21,7 +22,10 @@
 							@foreach ($blocks as $block)
 								<tr>
 									<td>
-										<a href="{{ route('cb_block.edit',$block->id) }}">{!! $block->name !!}</a><br />
+										<img src="{{$block->imgUrl()}}" height="32" alt="">
+									</td>
+									<td>
+										<a href="{{ route('cb_block.edit',$block->id) }}">{!! $block->name !!}</a>
 									</td>
 									<td>
 										<a href="{{ route('cb_block.edit',$block->id) }}" class="btn btn-sm btn-primary"><i class="fa fa-edit"></i></a>

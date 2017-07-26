@@ -30,7 +30,7 @@ class ContentBlock extends Model
     public function imgUrl($size = '194x91')
     {
         if ($this->img != '' ) {
-            return Storage::url(config('content-builder-js.storage_path_blocks').$this->img.'.jpg');
+            return Storage::url($this->img);
         } else {
             return 'http://placehold.it/'.$size.'?text=' . $this->name;
         }
