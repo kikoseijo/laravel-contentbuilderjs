@@ -1,9 +1,9 @@
-# Laravel Jquery Content Builder
+# Laravel ContentBuilderJs
 
 [![StyleCI](https://styleci.io/repos/97931894/shield?branch=master)](https://styleci.io/repos/97931894)
 
 
-This is a package made for laravel 5.4 and helps in the integration of a comercial product [innovastudio ContentBuilder](http://innovastudio.com/content-builder.aspx) (not included in this package) in a very clever way using couple of tables to store the data.
+This is a package made for laravel 5.4 and helps in the integration of a comercial product [Innovastudio ContentBuilder.js](http://innovastudio.com/content-builder.aspx) in a way that its using a couple of tables to store the data.
 This plugins allows you, not only, to create and save templates in the database, but also allows you to create your own snippets that are organized by categories.
 
 > This package does not comes with ContentBuilder.js source files. You have to purchase it and put all the files in the public folder.
@@ -19,13 +19,13 @@ This plugins allows you, not only, to create and save templates in the database,
 
 ### Step 1: Install package
 
-Add the package in your composer.json by executing the command.
+Add the package in your `composer.json` by executing the command.
 
 ```bash
 composer require ksoft/laravel-contentbuilderjs
 ```
 
-Next, add the service provider to `app/config/app.php`
+Next, add the service provider to `config/app.php`
 
 ```
 Ksoft\ContentBuilderJs\BuilderServiceProvider::class,
