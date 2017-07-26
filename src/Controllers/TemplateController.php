@@ -2,13 +2,11 @@
 
 namespace Ksoft\ContentBuilderJs\Controllers;
 
-use Illuminate\Routing\Controller as BaseController;
-use Illuminate\Http\Request;
-use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-
-use Ksoft\ContentBuilderJs\Models\ContentTemplate;
+use Illuminate\Http\Request;
+use Illuminate\Routing\Controller as BaseController;
 use Ksoft\ContentBuilderJs\Models\ContentBlock;
+use Ksoft\ContentBuilderJs\Models\ContentTemplate;
 use Mews\Purifier\Facades\Purifier;
 
 class TemplateController extends BaseController
@@ -25,9 +23,8 @@ class TemplateController extends BaseController
     public function save(Request $request, $page_id = '')
     {
         $inputs = $request->all();
-        if ($page_id>0) {
+        if ($page_id > 0) {
             $template = ContentTemplate::find($page_id);
-
         } else {
             $template = new ContentTemplate();
         }
@@ -47,16 +44,17 @@ class TemplateController extends BaseController
 
     public function edit($page_id = '')
     {
-        if ($page_id>0) {
+        if ($page_id > 0) {
             $template = ContentTemplate::find($page_id);
         }
         $els = ['custom'];
+
         return view('content-builder-js::page_builder', compact('template', 'els'));
     }
 
     public function delete($page_id)
     {
-        if ($page_id>0) {
+        if ($page_id > 0) {
             // TODO: Delete all template images.
             $template = ContentTemplate::find($page_id);
             if ($template) {
@@ -64,6 +62,7 @@ class TemplateController extends BaseController
                 session()->flash('status', 'Template deleted succesfully');
             }
         }
+
         return back();
     }
 }

@@ -1,33 +1,33 @@
 <?php
 
 namespace Ksoft\ContentBuilderJs;
-use Illuminate\Support\ServiceProvider;
+
 use Illuminate\Support\Facades\Route;
-use Illuminate\Contracts\Routing\Registrar as Router;
+use Illuminate\Support\ServiceProvider;
 
-class BuilderServiceProvider extends ServiceProvider {
-
+class BuilderServiceProvider extends ServiceProvider
+{
     /**
      * Bootstrap the application services.
      *
      * @return void
      */
-    public function boot() {
+    public function boot()
+    {
         $this->publishes([
-            __DIR__ . '/config/content-builder-js.php' => config_path('content-builder-js.php')
+            __DIR__.'/config/content-builder-js.php' => config_path('content-builder-js.php'),
         ], 'config');
 
         $this->publishes([
-            __DIR__ . '/assets/' => base_path('public/vendor/content-builder-js')
+            __DIR__.'/assets/' => base_path('public/vendor/content-builder-js'),
         ], 'public');
 
-        $this->loadViewsFrom(__DIR__ . '/resources/view', 'content-builder-js');
+        $this->loadViewsFrom(__DIR__.'/resources/view', 'content-builder-js');
         $this->publishes([
                __DIR__.'/resources/view' => resource_path('views/vendor/content-builder-js'),
         ], 'views');
 
         $this->loadMigrationsFrom(__DIR__.'/migrations');
-
     }
 
     /**
@@ -35,15 +35,17 @@ class BuilderServiceProvider extends ServiceProvider {
      *
      * @return void
      */
-    public function register() {
+    public function register()
+    {
         //$this->loadRoutesFrom(__DIR__.'/routes.php');
     }
 
     /**
      * Binds the Passport routes into the controller.
      *
-     * @param  callable|null  $callback
-     * @param  array  $options
+     * @param callable|null $callback
+     * @param array         $options
+     *
      * @return void
      */
     public static function routes($callback = null, array $options = [])
@@ -53,7 +55,7 @@ class BuilderServiceProvider extends ServiceProvider {
         };
 
         $defaultOptions = [
-            'prefix' => config('content-builder-js.route_prefix'),
+            'prefix'    => config('content-builder-js.route_prefix'),
             'namespace' => '\Ksoft\ContentBuilderJs\Controllers',
         ];
 
@@ -63,5 +65,4 @@ class BuilderServiceProvider extends ServiceProvider {
             $callback(new RouteRegistrar($router));
         });
     }
-
 }
