@@ -76,17 +76,49 @@ class BlockController extends BaseController
 
     protected function updateSnippets(){
 
+            $blocks = ContentBlock::all();
+
+            $snippetPath = config('content-builder-js.storage_path_snippets','public/block_snippets/');
+
+            $baseSnippetPath = config('content-builder-js.default.snippetFile');
+            //$baseCssPath = str_replace('/snippets', '/content',  str_replace('.html', '.css', $baseSnippetPath));
+
+            $base_snippets = \File::get( public_path() . $baseSnippetPath);
+            //$base_css = \File::get( public_path() . $baseCssPath);
+
+            $snippetFile = $snippetPath . 'snippets.html';
+            Storage::put($snippetFile, $base_snippets, 'public');
+
+            $cssFile = $snippetPath . 'content.css';
+            Storage::put($cssFile, '', 'public');
+
+            $jsFile = $snippetPath . 'js.js';
+            Storage::put($jsFile, '', 'public');
+            // Append to a file
+            $i=0;
+            foreach ($blocks as $block) {
+                $i++;
+                $htmlBlock = '<div data-num="'.$i.'" data-thumb="'.$block->imgUrl().'" data-cat="'.$block->category_id.'">' . "\n";
+                $htmlBlock .= '   <div>' . "\n";
+                $htmlBlock .= '       ' . $block->html . "\n";
+                $htmlBlock .= '   </div>' . "\n";
+                $htmlBlock .= '</div>';
+                Storage::append($snippetFile, $htmlBlock);
+                Storage::append($cssFile, $block->css);
+                Storage::append($jsFile, $block->js);
+            }
+        }
+    protected function updateSnippets(){
+
         $blocks = ContentBlock::all();
         $snippetPath = config('content-builder-js.storage_path_snippets','public/block_snippets/');
         $baseSnippetPath = config('content-builder-js.default.snippetFile');
-        $baseCssPath = str_replace('/snippets', '/content',  str_replace('.html', '.css', $baseSnippetPath));
         $snippetFile = $snippetPath . 'snippets.html';
         $cssFile = $snippetPath . 'content.css';
         $jsFile = $snippetPath . 'js.js';
-        $base_snippets = Storage::get($baseSnippetPath):
-        $base_css = Storage::get($baseCssPath):
+        $base_snippets = Storage::get($baseSnippetPath);
         Storage::put($snippetFile, $base_snippets, 'public');
-        Storage::put($cssFile, $base_css, 'public');
+        Storage::put($cssFile, '', 'public');
         Storage::put($jsFile, '', 'public');
         // Append to a file
         $i=0;

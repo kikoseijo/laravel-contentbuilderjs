@@ -2,6 +2,7 @@
 
 return [
     'content_css' => '/vendor/content-builder-js/assets/minimalist-basic/content-bootstrap.css',
+    'custom_css' => '/storage/block_snippets/content.css',
     'contentbuilder_css' => '/vendor/content-builder-js/contentbuilder/contentbuilder.css',
     'default_layout' => 'content-builder-js::layout', // Common files  layouts.default
     'route_prefix' => 'content-builder-js',
