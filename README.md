@@ -10,13 +10,10 @@ This plugins allows you, not only, to create and save templates in the database,
 
 ### Docs
 
-* [Demo](#demo)
-* [Laravel compatibility](#laravel-compatibility)
-* [Tutorials](#tutorials)
 * [Installation](#installation-in-4-steps)
-* [Configuration](#configuration)
-* [Features list](#features-list)
-* [FAQ / Support](#faq)
+* [FAQ / Support](#troubleshooting-and-configuration-tips)
+* [License](#license)
+* [Links](#links)
 
 ## Installation in 4 steps
 
@@ -42,27 +39,33 @@ This plugin uses couple of tables `cbldjs_templates` and `cbldjs_blocks`, run fo
 php artisan migrate
 ```
 
-### Step 3: Publish views, working folders and configuration
+### Step 3: Publish vendors
 
-We must have a configuration file in order to run the plugin, this is done by running following command:
+You can install all the following by running a single command:
 
 ```
+php artisan vendor:publish --provider="Ksoft\ContentBuilderJs\BuilderServiceProvider"
+```
+
+Or you can do each one individualy using the --tag
+
+```
+// Configuration file config/content-builder-js.php
 php artisan vendor:publish --provider="Ksoft\ContentBuilderJs\BuilderServiceProvider" --tag=config
-```
-
-We also need a place to put all ContentBuilder.js files, you can find the folder where to put this files on running the following command:
-
-```
+// ContentBuilder.js files must be put in public/vendors/content-builder-js
 php artisan vendor:publish --provider="Ksoft\ContentBuilderJs\BuilderServiceProvider" --tag=public
-```
-
-If you need to customize the views you can do so by running the previous command with the `views` tag instead:
-
-```
+// Views
 php artisan vendor:publish --provider="Ksoft\ContentBuilderJs\BuilderServiceProvider" --tag=views
 ```
 
-### Step 4: Add couple of links to your backend to see it working
+### Step 4: Routes and backend menu links
+
+We need to add the rotues to `routes/web.php`
+
+```
+\Ksoft\ContentBuilderJs\BuilderServiceProvider::routes();
+```
+>middlewares can be configured trough the `config('content-builder-js.middlewares')` by default them protected with `web,auth`
 
 You now will be able to run the plugin but for convenience this are the main routes you need to call to have you running:
 
@@ -71,15 +74,26 @@ You now will be able to run the plugin but for convenience this are the main rou
 <li><a href="{{route('cb_block.list')}}"><i class="fa fa-code fa-fw"></i> Template Blocks</a></li>
 ```
 
+## Troubleshooting and Configuration tips
 
-make sure you have in layout header `@stack('stylesheets')``` also in footer ```@stack('scripts')```
+### Layouts
 
-@include('content-builder-js::tpl')
+To fully integrate with your custom layouts define the name of the layout using the `config('content-builder-js.middlewares')` parameter and add couple of stack to inject the CSS  `@stack('stylesheets')` and for javascripts `@stack('scripts')`
 
-to be able to save images, need to add one line arround line 50
+### CSRF Token
 
-```
+By default, the saveimage.js script that comes with Contentbuilder.js does not include the laravel token, to fix this we  need to add a token field to this file arround line 50
+
+```javascript
 '<input id="_token" name="_token" type="hidden" value="'+ customval +'" />' +
 ```
 
-You are done!
+## License
+
+The Laravel ContentBuilderJs package is licensed under the terms of the MIT license and
+is available for free.
+
+## Links
+
+* [Credits](https://sunnyface.com?ref=github_laravel_contentbuilder)
+* [Developper](https://kikoseijo.com?ref=github_laravel_contentbuilder)
