@@ -43,7 +43,7 @@ class BlockController extends BaseController
         $block->category_id = $request->get('category_id');
         $block->js = $request->get('js');
         $block->css = $request->get('css');
-        $block->html = Purifier::clean($_POST['html']);
+        $block->html = $_POST['html'];
         $block->save();
 
         $this->updateSnippets();

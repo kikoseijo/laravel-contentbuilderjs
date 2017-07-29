@@ -7,5 +7,13 @@
 @if (config('content-builder-js.load_jquery_ui'))
     <script type="text/javascript" src="{{ config('content-builder-js.jquery-ui') }}"></script>
 @endif
+
 <script type="text/javascript" src="{{ config('content-builder-js.contentbuilderjs-src') }}"></script>
 <script type="text/javascript" src="{{ config('content-builder-js.saveimages') }}"></script>
+
+@if (config('content-builder-js.custom_blocks_enabled'))
+    @foreach (config('content-builder-js.extraJsLibs') as $extraLib)
+        <script type="text/javascript" src="{{ $extraLib }}"></script>
+    @endforeach
+    <script type="text/javascript" src="{{ config('content-builder-js.snippetJs') }}"></script>
+@endif

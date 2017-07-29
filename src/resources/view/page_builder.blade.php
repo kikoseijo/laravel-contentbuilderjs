@@ -77,7 +77,7 @@
 @push('scripts')
 
 	<script type="text/javascript">
-	@if (isset($els) && config('content-builder-js.use_custom_snippets'))
+	@if (isset($els) && config('content-builder-js.custom_blocks_enabled'))
 	    @foreach($els as $el)
         jQuery(document).ready(function ($) {
             $("#contentarea").contentbuilder(
