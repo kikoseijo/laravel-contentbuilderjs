@@ -23,7 +23,7 @@ return [
         'toolbar'     => 'left',
         'iconselect'  => '/vendor/content-builder-js/assets/ionicons/selecticon.html',
     ],
-    'custom_blocks_enabled' = false,    // make it true after you created your first snippet.
+    'custom_blocks_enabled' => false,    // make it true after you created your first snippet.
     'custom' => [  // will use this one if custom_blocks_enabled = true.
         'snippetFile' => '/storage/block_snippets/snippets.html',  // Adjust per your file storage settings.
         'snippetOpen' => true,
