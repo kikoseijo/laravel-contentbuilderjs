@@ -1,5 +1,6 @@
 # Laravel ContentBuilderJs
 
+[![TravisCI](https://travis-ci.org/kikoseijo/laravel-contentbuilderjs.svg?branch=master)](https://travis-ci.org/kikoseijo/laravel-contentbuilderjs.svg?branch=master)
 [![StyleCI](https://styleci.io/repos/97931894/shield?branch=master)](https://styleci.io/repos/97931894)
 
 
