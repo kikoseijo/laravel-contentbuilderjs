@@ -17,7 +17,6 @@ return [
     'jquery-ui'             => '/vendor/content-builder-js/contentbuilder/jquery-ui.min.js',
     'contentbuilderjs-src'  => '/vendor/content-builder-js/contentbuilder/contentbuilder.js',
     'saveimages'            => '/vendor/content-builder-js/contentbuilder/saveimages.js',
-    'main_loop'
     'default' => [  // nothing from here will run if custom_blocks_enabled are enabled.
         'snippetFile' => '/vendor/content-builder-js/assets/minimalist-basic/snippets-bootstrap.html',  // Adjust per your file storage settings.
         'snippetOpen' => true,

@@ -8,7 +8,6 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
 use Ksoft\ContentBuilderJs\Models\ContentBlock;
-use Mews\Purifier\Facades\Purifier;
 
 class BlockController extends BaseController
 {
