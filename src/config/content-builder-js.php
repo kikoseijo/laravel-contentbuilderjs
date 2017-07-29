@@ -37,7 +37,7 @@ return [
     ],
     'extraCssLibs' => [ // add here extra css files you need to load in your header.
         //'https://cdnjs.com/libraries/bulma'
-    ]
+    ],
     'categories' => [       // changes here are not reflecting when creating new templates, only when editing snippets.
         '0'  => 'Default',
         '-1' => 'All',
