@@ -17,28 +17,28 @@ return [
     'jquery-ui'             => '/vendor/content-builder-js/contentbuilder/jquery-ui.min.js',
     'contentbuilderjs-src'  => '/vendor/content-builder-js/contentbuilder/contentbuilder.js',
     'saveimages'            => '/vendor/content-builder-js/contentbuilder/saveimages.js',
-    'default' => [  // nothing from here will run if custom_blocks_enabled are enabled.
+    'default'               => [  // nothing from here will run if custom_blocks_enabled are enabled.
         'snippetFile' => '/vendor/content-builder-js/assets/minimalist-basic/snippets-bootstrap.html',  // Adjust per your file storage settings.
         'snippetOpen' => true,
         'toolbar'     => 'left',
         'iconselect'  => '/vendor/content-builder-js/assets/ionicons/selecticon.html',
     ],
     'custom_blocks_enabled' => false,    // make it true after you created your first snippet.
-    'custom' => [  // will use this one if custom_blocks_enabled = true.
+    'custom'                => [  // will use this one if custom_blocks_enabled = true.
         'snippetFile' => '/storage/block_snippets/snippets.html',  // Adjust per your file storage settings.
         'snippetOpen' => true,
         'toolbar'     => 'left',
         'iconselect'  => '/vendor/content-builder-js/assets/ionicons/selecticon.html',
     ],
-    'snippetJs' => '/storage/block_snippets/js.js', // Adjusting this are not an option righ now.
-    'snippetCss' => '/storage/block_snippets/content.css', // Adjusting this are not an option righ now.
-    'extraJsLibs' => [ // add here extra libs you need to load in your scripts stack.
+    'snippetJs'     => '/storage/block_snippets/js.js', // Adjusting this are not an option righ now.
+    'snippetCss'    => '/storage/block_snippets/content.css', // Adjusting this are not an option righ now.
+    'extraJsLibs'   => [ // add here extra libs you need to load in your scripts stack.
         //'https://unpkg.com/vue'
     ],
-    'extraCssLibs' => [ // add here extra css files you need to load in your header.
+    'extraCssLibs'  => [ // add here extra css files you need to load in your header.
         //'https://cdnjs.com/libraries/bulma'
     ],
-    'categories' => [       // changes here are not reflecting when creating new templates, only when editing snippets.
+    'categories'    => [       // changes here are not reflecting when creating new templates, only when editing snippets.
         '0'  => 'Default',
         '-1' => 'All',
         '1'  => 'Title',
