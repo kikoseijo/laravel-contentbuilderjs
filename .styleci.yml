@@ -1,0 +1,10 @@
+preset: recommended
+
+risky: false
+
+linting: true
+
+finder:
+  exclude:
+    - "tests"
+    - "src/assets"
