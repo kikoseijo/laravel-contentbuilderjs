@@ -1,5 +1,11 @@
 # Laravel ContentBuilderJs
 
+
+<a href="https://packagist.org/packages/ksoft/laravel-contentbuilderjs"><img alt="Latest Stable Version" src="https://poser.pugx.org/ksoft/laravel-contentbuilderjs/v/stable" /></a>
+<a href="https://packagist.org/packages/ksoft/laravel-contentbuilderjs"><img alt="Total Downloads" src="https://poser.pugx.org/ksoft/laravel-contentbuilderjs/downloads" /></a>
+<a href="https://packagist.org/packages/ksoft/laravel-contentbuilderjs"><img alt="Latest Unstable Version" src="https://poser.pugx.org/ksoft/laravel-contentbuilderjs/v/unstable" /></a>
+<a href="https://packagist.org/packages/ksoft/laravel-contentbuilderjs"><img alt="License" src="https://poser.pugx.org/ksoft/laravel-contentbuilderjs/license" /></a>
+
 [![TravisCI](https://travis-ci.org/kikoseijo/laravel-contentbuilderjs.svg?branch=master)](https://travis-ci.org/kikoseijo/laravel-contentbuilderjs.svg?branch=master)
 [![StyleCI](https://styleci.io/repos/97931894/shield?branch=master)](https://styleci.io/repos/97931894)
 
