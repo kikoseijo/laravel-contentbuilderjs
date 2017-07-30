@@ -1,9 +1,9 @@
 # Laravel ContentBuilderJs
 
-[![Latest Stable Version](https://packagist.org/packages/ksoft/laravel-contentbuilderjs)](https://poser.pugx.org/ksoft/laravel-contentbuilderjs/v/stable)
-[![Total Downloads](https://packagist.org/packages/ksoft/laravel-contentbuilderjs)](https://poser.pugx.org/ksoft/laravel-contentbuilderjs/downloads)
-[![Latest Unstable Version](https://packagist.org/packages/ksoft/laravel-contentbuilderjs)](https://poser.pugx.org/ksoft/laravel-contentbuilderjs/v/unstable)
-[![License](https://packagist.org/packages/ksoft/laravel-contentbuilderjs)](https://poser.pugx.org/ksoft/laravel-contentbuilderjs/license)
+[![Latest Stable Version](https://poser.pugx.org/ksoft/laravel-contentbuilderjs/v/stable)](https://packagist.org/packages/ksoft/laravel-contentbuilderjs)
+[![Total Downloads](https://poser.pugx.org/ksoft/laravel-contentbuilderjs/downloads)](https://packagist.org/packages/ksoft/laravel-contentbuilderjs)
+[![Latest Unstable Version](https://poser.pugx.org/ksoft/laravel-contentbuilderjs/v/unstable)](https://packagist.org/packages/ksoft/laravel-contentbuilderjs)
+[![License](https://poser.pugx.org/ksoft/laravel-contentbuilderjs/license)](https://packagist.org/packages/ksoft/laravel-contentbuilderjs)
 [![TravisCI](https://travis-ci.org/kikoseijo/laravel-contentbuilderjs.svg?branch=master)](https://travis-ci.org/kikoseijo/laravel-contentbuilderjs.svg?branch=master)
 [![StyleCI](https://styleci.io/repos/97931894/shield?branch=master)](https://styleci.io/repos/97931894)
 
