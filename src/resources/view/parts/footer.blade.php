@@ -15,5 +15,7 @@
     @foreach (config('content-builder-js.extraJsLibs') as $extraLib)
         <script type="text/javascript" src="{{ $extraLib }}"></script>
     @endforeach
-    <script type="text/javascript" src="{{ config('content-builder-js.snippetJs') }}"></script>
+    @if (\Request::route()->getName()!= 'cb_template.edit')
+      <script type="text/javascript" src="{{ config('content-builder-js.snippetJs') }}"></script>
+    @endif
 @endif
